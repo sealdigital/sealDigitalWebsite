@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seal Digital | Professional Websites for Growing Businesses</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pixel-font: 'VT323', monospace;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb; /* Light gray background */
+            color: #11182b; /* Dark gray text */
+            font-family: var(--body-font);
+        }
+
+        .font-pixel {
+            font-family: var(--pixel-font);
+        }
+        
+        .font-heading {
+            font-family: var(--body-font);
+            font-weight: 800; /* Extra-bold for headings */
+        }
+
+        #pixel-hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.15; /* Reduced opacity for subtlety in light mode */
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-item {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .faq-item .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+        .faq-item .faq-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+    .pixel-transition-canvas {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        z-index: 10;
+        pointer-events: none;
+    }
+
+
+        .cta-glow {
+            animation: pulse-dark 2s infinite;
+        }
+        
+.pixel-chunk {
+            position: absolute;
+            background-color: #f9fafb; /* Use your site's background color */
+            transition: opacity 0.1s ease-in-out;
+        }
+
+        @keyframes pulse-dark {
+            0% { box-shadow: 0 0 0 0 rgba(17, 24, 39, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(17, 24, 39, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(17, 24, 39, 0); }
+        }
+        
+        @media (min-width: 1280px) { /* Corresponds to Tailwind's 'xl' breakpoint */
+            html {
+                font-size: 115%; /* 16px * 1.25 = 20px base font */
+            }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm p-6 border-b border-gray-200 transition-transform duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-gray-900">
+                <img src="images/logoT.png" alt="Seal Digital Logoo" class="h-10 w-auto">
+            </a>
+            <nav class="hidden md:flex space-x-8 text-base tracking-wider uppercase font-medium text-gray-600">
+                <a href="#" class="hover:text-gray-900 transition-colors">Website Development</a>
+                <a href="management.html" class="hover:text-gray-900 transition-colors">Website Management</a>
+                <a href="contact.html" class="hover:text-gray-900 transition-colors">Contact</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden z-50 text-gray-900">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200">
+            <div class="flex flex-col items-center space-y-6 py-8 text-lg uppercase tracking-widest text-gray-800">
+                <a href="#" class="mobile-link hover:text-black transition-colors">Web Development</a>
+                <a href="management.html" class="mobile-link hover:text-black transition-colors">Web Management</a>
+                <a href="contact.html" class="mobile-link hover:text-black transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[70vh] flex items-center justify-center text-center overflow-hidden bg-white">
+            <canvas id="pixel-hero-canvas"></canvas>
+            <div class="relative z-10 p-4">
+                <h1 id="hero-headline" class="font-heading text-5xl md:text-7xl lg:text-8xl mb-4 tracking-tighter text-gray-900 min-h-[100px] md:min-h-[150px]">
+                    <!-- JS will populate this -->
+                </h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-600">
+                    We build high-performance websites that help your business grow. Clean design, powerful results.
+                </p>
+                                <a href="contact/design" class="mt-8 inline-block bg-gray-900 text-white font-bold py-3 px-8 uppercase tracking-wider transition-transform duration-300 hover:scale-105">
+                    I want a free prototype
+                </a>
+            </div>
+        </section>
+
+                <!-- Services Section -->
+        <section id="services" class="relative py-20 md:py-32 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="bg-white border border-gray-200 rounded-lg p-8 md:p-12 shadow-xl reveal max-w-6xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                        
+                        <!-- Image Column -->
+                        <div class="rounded-lg overflow-hidden">
+                           <img src="images/mockup.png" alt="Project Showcase" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Text & CTA Column -->
+                        <div class="flex flex-col h-full">
+                            <div>
+                                <h3 class="text-3xl font-bold mb-1 text-gray-900">Small Business Website</h3>
+                                <p class="font-pixel text-xl text-gray-500 mb-6">// Starting at $499</p>
+                                
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-gray-600">
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2 ">&gt;</span> Free Prototype</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2 ">&gt;</span> Transparent Prices</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2 ">&gt;</span> Modern Web Practices</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2 ">&gt;</span> Mobile Friendly</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2 ">&gt;</span> Custom Domain</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2 ">&gt;</span> Contact Form</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2 ">&gt;</span> Easily Editable</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2 ">&gt;</span> Quick Comumunication</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-auto pt-8 text-right">
+                                <a href="contact/design" class="inline-block bg-gray-900 text-white font-bold py-3 px-8 uppercase tracking-wider transition-transform duration-300 hover:scale-105 rounded-md">
+                                    Start a Project
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="relative overflow-hidden py-20 md:py-32 bg-white">
+            <!-- Background Shape 1 -->
+            <!--<img src="seal1.png" alt="" class="absolute top-1/2 -translate-y-1/2 -mt-16 -left-48 w-[48rem] h-[48rem] z-0 pointer-events-none object-cover scale-x-[-1]"> -->
+            <!-- Background Shape 2 -->
+            <!--<img src="ice.png" alt="" class="absolute bottom-20 -right-64 w-[48rem] h-[48rem] z-0 pointer-events-none object-cover"> -->
+            <div class="container mx-auto px-4 relative z-10">
+                <h2 class="font-heading text-4xl md:text-5xl text-center mb-16 tracking-tight reveal">Our Work.</h2>
+                <div class="space-y-24">
+                    <!-- Project 1: Billboard -->
+                    <div class="grid md:grid-cols-2 gap-12 items-center reveal">
+                        <div class="bg-white p-2 rounded-lg shadow-2xl md:-ml-[5vw]">
+                            <a href="https://apexodm.com" target="_blank" rel="noopener noreferrer">
+                                <div id="pixel-transition-container" class="relative rounded-md overflow-hidden cursor-pointer aspect-video">
+                                    
+                                    <!-- Image 1 (Initial) -->
+                                    <img id="image1" src="images/apex1.png" alt="Apex Plumbing Website - Before" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300" style="opacity: 1;">
+                                    
+                                    <!-- Image 2 (Hover) -->
+                                    <img id="image2" src="images/apex2.png" alt="Apex Plumbing Website - After" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300" style="opacity: 0;">
+    
+                                    <!-- Grid chunks will be injected here by JS -->
+                                </div>
+                            </a>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">Apex Outdoor Media</h3>
+                            <p class="text-gray-600 mb-4">A comprehensive billboard rental platform featuring an interactive inventory map with real-time availability, seamless Google Sheets integration for easy updates, and strategic CTAs that drive inquiries.</p>
+                            <a href="https://www.apexodm.com/" class="font-bold uppercase tracking-wider text-gray-900 border-b-2 border-gray-900 pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors">View Project &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Project 2: Architect -->
+                    <div class="grid md:grid-cols-2 gap-12 items-center reveal">
+                        <div class="md:order-2">
+                             <div class="bg-white p-2 rounded-lg shadow-2xl group overflow-hidden md:-mr-[5vw]">
+                                <img src="https://placehold.co/800x450/11182b/FFFFFF?text=Struxture+Architects" alt="Struxture Architects Website" class="rounded-md w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="md:order-1 md:text-right">
+                            <h3 class="text-3xl font-bold mb-2">Struxture Architects</h3>
+                            <p class="text-gray-600 mb-4">A sleek, minimalist portfolio to showcase high-end architectural projects. The image-focused design elevates their brand and attracts premium clients.</p>
+                            <a href="#" class="font-bold uppercase tracking-wider text-gray-900 border-b-2 border-gray-900 pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors">View Project &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Project 3: HVAC 
+                    <div class="grid md:grid-cols-2 gap-12 items-center reveal">
+                        <div>
+                             <div class="bg-white p-2 rounded-lg shadow-2xl group overflow-hidden">
+                                <img src="https://placehold.co/800x450/f97316/FFFFFF?text=Flow+HVAC" alt="Flow HVAC Services Website" class="rounded-md w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out">
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-2">Flow HVAC Services</h3>
+                            <p class="text-gray-600 mb-4">A trustworthy and informative website focused on local SEO to capture emergency repair calls and seasonal maintenance bookings.</p>
+                            <a href="#" class="font-bold uppercase tracking-wider text-gray-900 border-b-2 border-gray-900 pb-1 hover:text-gray-500 hover:border-gray-500 transition-colors">View Project &rarr;</a>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="relative py-16 md:py-20 bg-gray-50 border-y border-gray-200">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-5xl mx-auto min-h-[6rem] flex flex-col items-center justify-center">
+                    <p id="testimonial-quote" class="text-2xl md:text-3xl italic text-gray-700"></p>
+                </div>
+            </div>
+            
+            <!-- Trustpilot Link Icon -->
+            <a href="https://www.trustpilot.com/review/seal-digital.com" target="_blank" rel="noopener noreferrer" aria-label="See all reviews on Trustpilot" class="absolute bottom-5 right-5 text-gray-400 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                </svg>
+            </a>
+        </section>
+        
+        <!-- Our Procedure Section -->
+        <section id="procedure" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
+                    <!-- Left Column: Title & CTA -->
+                    <div class="reveal">
+                        <h2 class="font-heading text-4xl md:text-5xl mb-4 tracking-tight text-gray-900">What are the steps?</h2>
+                        <p class="text-lg text-gray-600 mb-8 max-w-md">
+                            Our streamlined 4-step process ensures transparency, collaboration, and a final product that exceeds your expectations, on time and on budget.
+                        </p>
+                        <a href="contact/design" class="inline-block bg-gray-900 text-white font-bold py-3 px-8 uppercase tracking-wider transition-transform duration-300 hover:scale-105">
+                            Plan Your Project
+                        </a>
+                    </div>
+
+                    <!-- Right Column: Numbered Steps -->
+                    <div class="reveal" style="transition-delay: 200ms;">
+                        <div class="space-y-8">
+                            <!-- Step 1 -->
+                            <div class="flex items-start">
+                                <div class="font-pixel text-5xl text-gray-300 font-bold mr-6">>01</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-1">Free Prototype</h3>
+                                    <p class="text-gray-600">See your website come to life with a working prototype. No deposit required—just a clear vision of your project's potential.</p>
+                                </div>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="flex items-start">
+                                <div class="font-pixel text-5xl text-gray-300 font-bold mr-6">>02</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-1">Clarification</h3>
+                                    <p class="text-gray-600">We discuss your goals and vision to create a tailored solution. You'll receive a custom quote with no surprises.</p>
+                                </div>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="flex items-start">
+                                <div class="font-pixel text-5xl text-gray-300 font-bold mr-6">>03</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-1">Build & Launch</h3>
+                                    <p class="text-gray-600">We handle everything from development to deployment. Your website launches fast, secure, and ready to convert visitors into customers.</p>
+                                </div>
+                            </div>
+                            <!-- Step 4 -->
+                            <div class="flex items-start">
+                                <div class="font-pixel text-5xl text-gray-300 font-bold mr-6">>04</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-1">Ongoing Support</h3>
+                                    <p class="text-gray-600">Keep your site performing with regular updates, security monitoring, and optimization to continuously attract new clients. You can use one of our <a href="management" class="font-semibold text-gray-900 underline hover:no-underline">management plans.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="relative py-20 md:py-32 bg-gray-50">
+            <!-- Background Shape 3 
+            <img src="seal2t.png" alt="" class="absolute bottom-5 left-36 w-[20rem] h-[20rem] z-0 pointer-events-none object-cover">-->
+
+            <div class="container mx-auto px-4 max-w-3xl relative z-10">
+                <h2 class="font-heading text-4xl md:text-5xl text-center mb-16 tracking-tight reveal">Common Questions.</h2>
+                <div id="faq-accordion" class="space-y-2 reveal">
+                    <!-- FAQ Items will be injected here by JS -->
+                </div>
+                <p class="text-center text-gray-600 mt-12 reveal">Have other questions? <a href="contact" class="font-bold text-gray-900 underline hover:no-underline">Get in touch.</a></p>
+            </div>
+        </section>
+
+                <!-- CTA Section -->
+        <section class="py-20 md:py-32 bg-black text-white text-center">
+            <div class="container mx-auto px-4 reveal">
+                <h2 class="font-heading text-4xl md:text-5xl mb-4 tracking-tight">Ready to Grow Your Business?</h2>
+                <p class="max-w-xl mx-auto text-gray-300 mb-8">
+                    Let's discuss your project. We offer a free, no-obligation consultation to see how we can help.
+                </p>
+                <a href="contact" class="cta-glow inline-block bg-white text-gray-900 font-bold text-lg py-4 px-10 uppercase tracking-wider transition-transform duration-300 hover:scale-105">
+                    hello@seal-digital.com
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer id="contact" class="bg-black text-white py-16">
+            <div class="container mx-auto px-4">
+                
+                <!-- Top Section: Services -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-16">
+                    <!-- Service 1 -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">
+                            <a href="#" class="hover:underline">Website Design</a>
+                        </h3>
+                        <p class="text-gray-400 max-w-sm">Authentic, modern, and affordable website designs for small businesses. Get your free prototype today.</p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">
+                            <a href="management.html" class="hover:underline">Website Management</a>
+                        </h3>
+                        <p class="text-gray-400 max-w-sm">Reliable services to keep your site up to date and running smoothly so you can focus on your business.</p>
+                    </div>
+                </div>
+
+                                <!-- Bottom Section: Copyright, Legal, and Socials -->
+                <div class="py-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <!-- Left: Logo, Copyright, and Legal -->
+                    <div class="flex items-center gap-x-6">
+                        <!-- Logo -->
+                        <a href="#" class="block flex-shrink-0">
+                            <img src="images/logoTG.png" alt="Seal Digital Logo" class="h-10 w-auto">
+                        </a>
+                        <!-- Text Stack -->
+                        <div class="text-sm text-gray-500">
+                            <p class="whitespace-nowrap">&copy; <span id="copyright-year"></span> Seal Digital. All Rights Reserved.</p>
+                            <nav class="flex items-center gap-x-4 text-xs mt-1">
+                               <a href="/tos" class="hover:text-white transition-colors">Terms of Service</a>
+                               <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Right: Social Icons -->
+                    <div class="flex items-center gap-5 text-gray-400">
+                        <a href="https://www.trustpilot.com/review/seal-digital.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/000/svg"><path d="M22.952 8.747l-6.262-.54L14.12 2.45c-.24-.48-.72-.79-1.256-.79-.538 0-1.018.31-1.257-.79L9.038 8.207l-6.26.54c-.564.048-.99.504-1.02 1.07-.03.564.39 1.044.948 1.11l4.75 3.203-1.57 5.797c-.12.456.09.948.5 1.188.41.24.91.21 1.29-.072l5.4-3.41 5.4 3.41c.18.12.38.18.58.18.23 0 .46-.08.65-.25.41-.24.62-.73.5-1.18l-1.57-5.798 4.75-3.204c.55-.06.98-.54.95-1.11a1.13 1.13 0 00-.51-.81zm-9.832 3.194l-2.02 1.36-1.55 1.39-1.1-4.08 1.09-4.08 4.34.37.02 8.76-1.87-1.18z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61580315578302" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/0000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- NAVBAR HIDE/SHOW ON SCROLL ---
+            const header = document.getElementById('main-header');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                // We add a threshold of 100px before the effect starts
+                if (window.scrollY > 100) { 
+                    if (lastScrollY < window.scrollY) {
+                        // Scrolling down
+                        header.classList.add('-translate-y-full');
+                    } else {
+                        // Scrolling up
+                        header.classList.remove('-translate-y-full');
+                    }
+                } else {
+                    // Near the top of the page, always show header
+                     header.classList.remove('-translate-y-full');
+                }
+                lastScrollY = window.scrollY;
+            });
+            
+            // --- HERO PIXEL GRID INTERACTION ---
+            /*const canvas = document.getElementById('pixel-hero-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height, pixels;
+            let mouse = { x: null, y: null, radius: 100 };
+            const pixelSize = 15;
+
+            function initCanvas() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                pixels = [];
+                const cols = Math.ceil(width / pixelSize);
+                const rows = Math.ceil(height / pixelSize);
+
+                for (let i = 0; i < cols; i++) {
+                    pixels[i] = [];
+                    for (let j = 0; j < rows; j++) {
+                        pixels[i][j] = new Pixel(i * pixelSize, j * pixelSize, pixelSize);
+                    }
+                }
+            }
+
+            class Pixel {
+                constructor(x, y, size) {
+                    this.x = x;
+                    this.y = y;
+                    this.size = size;
+                    this.baseAlpha = 0.1;
+                    this.alpha = this.baseAlpha;
+                    this.targetAlpha = this.baseAlpha;
+                }
+
+                draw() {
+                    // Changed to dark gray for light mode
+                    ctx.fillStyle = `rgba(17, 24, 39, ${this.alpha})`;
+                    ctx.fillRect(this.x, this.y, this.size, this.size);
+                }
+
+                update() {
+                    let dx = mouse.x - (this.x + this.size / 2);
+                    let dy = mouse.y - (this.y + this.size / 2);
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < mouse.radius) {
+                        this.targetAlpha = 0.7 - (distance / mouse.radius);
+                    } else {
+                        this.targetAlpha = this.baseAlpha;
+                    }
+                    this.alpha += (this.targetAlpha - this.alpha) * 0.1;
+                    this.draw();
+                }
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                for (let i = 0; i < pixels.length; i++) {
+                    for (let j = 0; j < pixels[i].length; j++) {
+                        if (pixels[i][j]) pixels[i][j].update();
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener('mousemove', (e) => { mouse.x = e.x; mouse.y = e.y; });
+            window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+            window.addEventListener('resize', initCanvas);
+            
+            initCanvas();
+            animate();*/
+
+            // --- HERO TEXT SCRAMBLE EFFECT ---
+            class TextScramble {
+                constructor(el) { this.el = el; this.chars = '!<>-_\\/[]{}—=+*^?#_'; this.update = this.update.bind(this); }
+                setText(newText) {
+                    const oldText = this.el.innerText;
+                    const length = Math.max(oldText.length, newText.length);
+                    const promise = new Promise((resolve) => this.resolve = resolve);
+                    this.queue = [];
+                    for (let i = 0; i < length; i++) {
+                        const from = oldText[i] || ''; const to = newText[i] || '';
+                        const start = Math.floor(Math.random() * 40); const end = start + Math.floor(Math.random() * 40);
+                        this.queue.push({ from, to, start, end });
+                    }
+                    cancelAnimationFrame(this.frameRequest); this.frame = 0; this.update(); return promise;
+                }
+                update() {
+                    let output = ''; let complete = 0;
+                    for (let i = 0, n = this.queue.length; i < n; i++) {
+                        let { from, to, start, end, char } = this.queue[i];
+                        if (this.frame >= end) { complete++; output += to;
+                        } else if (this.frame >= start) {
+                            if (!char || Math.random() < 0.28) { char = this.randomChar(); this.queue[i].char = char; }
+                            output += `<span class="text-gray-400">${char}</span>`;
+                        } else { output += from; }
+                    }
+                    this.el.innerHTML = output;
+                    if (complete === this.queue.length) { this.resolve();
+                    } else { this.frameRequest = requestAnimationFrame(this.update); this.frame++; }
+                }
+                randomChar() { return this.chars[Math.floor(Math.random() * this.chars.length)]; }
+            }
+
+            const heroHeadline = document.getElementById('hero-headline');
+            const fx = new TextScramble(heroHeadline);
+            const phrases = [
+                'BUILD YOUR BRAND.',
+                'FREE PROTOTYPE.',
+                'WEBSITES WITHOUT THE BULLSHIT.',
+                'CONSISTENT PRICES.',
+                'DESIGNED FOR LEADS.'
+            ];
+            let counter = 0;
+            const nextPhrase = () => {
+                fx.setText(phrases[counter]);
+                counter = (counter + 1) % phrases.length;
+            };
+
+            // Set initial text after a short delay
+            setTimeout(nextPhrase, 500);
+            // Cycle through phrases every 6 seconds
+            setInterval(nextPhrase, 6000);
+
+            // --- ON-SCROLL REVEAL ANIMATION ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => { observer.observe(el); });
+            
+            // --- PIXEL BUILD/UNBUILD TRANSITION ---
+            const container = document.getElementById('pixel-transition-container');
+            if (container) {
+                const image1 = document.getElementById('image1');
+                const image2 = document.getElementById('image2');
+
+                const GRID_COLUMNS = 12;
+                const GRID_ROWS = 7;
+                const BUILD_DELAY = 150; // Max random delay for build (ms)
+                const TRANSITION_DURATION = 80; // CSS transition time (ms)
+
+                let isAnimating = false;
+                let isShowingImage2 = false;
+
+                const runTransition = () => {
+                    if (isAnimating) return;
+                    isAnimating = true;
+
+                    // --- Phase 1: Build the Wall ---
+                    const fragment = document.createDocumentFragment();
+                    for (let i = 0; i < GRID_COLUMNS * GRID_ROWS; i++) {
+                        const chunk = document.createElement('div');
+                        chunk.className = 'pixel-chunk';
+                        const col = i % GRID_COLUMNS;
+                        const row = Math.floor(i / GRID_COLUMNS);
+
+                        Object.assign(chunk.style, {
+                            width: `${100 / GRID_COLUMNS}%`,
+                            height: `${100 / GRID_ROWS}%`,
+                            left: `${col * (100 / GRID_COLUMNS)}%`,
+                            top: `${row * (100 / GRID_ROWS)}%`,
+                            opacity: '0',
+                            transitionDelay: `${Math.random() * BUILD_DELAY}ms`
+                        });
+                        fragment.appendChild(chunk);
+                    }
+                    container.appendChild(fragment);
+
+                    // Trigger the build animation
+                    setTimeout(() => {
+                        container.querySelectorAll('.pixel-chunk').forEach(chunk => {
+                            chunk.style.opacity = '1';
+                        });
+                    }, 10);
+
+
+                    // --- Phase 2: Swap Image and Unbuild the Wall ---
+                    // This happens after the wall is fully built
+                    setTimeout(() => {
+                        // Swap the underlying image while it's hidden
+                        if (!isShowingImage2) {
+                            image1.style.opacity = '0';
+                            image2.style.opacity = '1';
+                        } else {
+                            image1.style.opacity = '1';
+                            image2.style.opacity = '0';
+                        }
+                        
+                        // Trigger the unbuild animation
+                        container.querySelectorAll('.pixel-chunk').forEach(chunk => {
+                            chunk.style.opacity = '0';
+                        });
+
+                    }, BUILD_DELAY + TRANSITION_DURATION);
+
+
+                    // --- Phase 3: Cleanup ---
+                    // This happens after the entire sequence is finished
+                    setTimeout(() => {
+                        container.querySelectorAll('.pixel-chunk').forEach(el => el.remove());
+                        isShowingImage2 = !isShowingImage2; // Flip the state
+                        isAnimating = false;
+                    }, (BUILD_DELAY + TRANSITION_DURATION) * 2);
+                };
+
+                container.addEventListener('mouseenter', () => {
+                    if (!isShowingImage2) runTransition();
+                });
+                container.addEventListener('mouseleave', () => {
+                    if (isShowingImage2) runTransition();
+                });
+            }
+            
+            
+// --- REUSABLE DENSITY-BASED PIXEL TRANSITION ---
+
+        /**
+         * A seeded pseudo-random number generator (PRNG).
+         * This gives the same sequence of numbers for the same seed, creating a consistent pattern.*/
+        /*function mulberry32(seed) {
+            return function() {
+                let t = seed += 0x6D2B79F5;
+                t = Math.imul(t ^ t >>> 15, t | 1);
+                t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+                return ((t ^ t >>> 14) >>> 0) / 4294967296;
+            }
+        }/*/
+
+/**
+         * Creates a responsive, seeded pixel dissolve effect on a given canvas.
+         * @param {object} options - Configuration for the transition.
+         * @param {string} options.canvasId - The ID of the canvas element.
+         * @param {string} options.pixelColor - The hex color for the pixels.
+         * @param {number} options.pixelSize - The size of each pixel square.
+         * @param {number} options.seed - A number to seed the random pattern.
+         * @param {number} options.height - The height of the transition area in pixels.
+         * @param {number} options.bottomOffset - Vertical offset from the bottom in pixels.
+         */
+         
+        /*function createPixelTransition(options) {
+            const canvas = document.getElementById(options.canvasId);
+            if (!canvas) {
+                console.error(`Canvas with ID "${options.canvasId}" not found.`);
+                return;
+            }
+            
+            // --- NEW: Apply styles dynamically ---
+            // Use defaults if parameters are not provided
+            const height = options.height || 150;
+            const bottomOffset = options.bottomOffset !== undefined ? options.bottomOffset : -1;
+
+            canvas.style.height = `${height}px`;
+            canvas.style.bottom = `${bottomOffset}px`;
+            // --- End of new code ---
+
+            const ctx = canvas.getContext('2d');
+            
+            function draw() {
+                // IMPORTANT: We must re-initialize the generator each time to keep the pattern consistent on resize
+                const random = mulberry32(options.seed);
+
+                const width = canvas.clientWidth;
+                // The height is now read from the element's styled height
+                const clientHeight = canvas.clientHeight; 
+                canvas.width = width;
+                canvas.height = clientHeight;
+
+                ctx.fillStyle = options.pixelColor;
+                
+                for (let y = 0; y < clientHeight; y += options.pixelSize) {
+                    for (let x = 0; x < width; x += options.pixelSize) {
+                        const density = Math.pow(y / clientHeight, 1.8);
+                        if (random() < density) {
+                            ctx.fillRect(x, y, options.pixelSize, options.pixelSize);
+                        }
+                    }
+                }
+            }
+            
+            draw();
+            // We use a debounce to prevent excessive redraws during resize, improving performance
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(draw, 100); 
+            });
+        }
+
+        // --- Initialize the Transitions with new parameters ---
+
+        // 1. Hero Section (Light to Dark)
+        createPixelTransition({
+            canvasId: 'pixel-transition-canvas',
+            pixelColor: '#111827', // Color of the DARK services section
+            pixelSize: 6,
+            seed: 54321,
+            height: 150,        // You can now control the height
+            bottomOffset:0     // Position it exactly at the bottom
+        });
+
+        // 2. Services Section (Dark to Light)
+        createPixelTransition({
+            canvasId: 'services-transition-canvas',
+            pixelColor: '#f9fafb', // Color of the LIGHT portfolio section
+            pixelSize: 6,
+            seed: 12345,
+            height: 150,        // Example: Make this one slightly shorter
+            bottomOffset:0   // Example: Move it down 10px to create an overlap
+        });*/
+            
+            
+
+            // --- TESTIMONIALS SLIDER ---
+            const testimonials = [
+                { quote: "..beyond happy with the how the website turned out..", author: "David Chen", company: "Flow HVAC" },
+                { quote: "..provided instruction in an easy to follow way..", author: "Mike R.", company: "Apexodm" },
+                { quote: "..went out of their way to answer all my questions in a thorough and timely fashion.", author: "David Chen", company: "Flow HVAC" },
+                { quote: "I will absolutely work with Seal Digital in the future..", author: "David Chen", company: "Flow HVAC" },
+                { quote: "..provided easy to follow instructions for updating the website.", company: "Struxture Architects" }
+            ];
+            let currentTestimonial = 0;
+            const testimonialQuoteEl = document.getElementById('testimonial-quote');
+            const testimonialFx = new TextScramble(testimonialQuoteEl);
+
+            function showTestimonial() {
+                const testimonial = testimonials[currentTestimonial];
+                
+                // Use the scramble effect on the quote
+                testimonialFx.setText(`"${testimonial.quote}"`);
+                
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            }
+
+            // Run on load, then set interval for 8 seconds (2s animation + 6s wait)
+            showTestimonial();
+            setInterval(showTestimonial, 8000);
+
+            // --- FAQ ACCORDION ---
+            const faqData = [
+    { 
+        question: "When will my website be live?", 
+        answer: "A typical website takes 3-4 weeks from start to finish. This includes design, development, content integration, and testing. Timeline may vary based on your specific project requirements and complexity." 
+    },
+    { 
+        question: "Is the prototype really free?", 
+        answer: "Yes, absolutely. We create a detailed website outline and mockup at no cost with no strings attached. This gives you a clear vision of how your website will look and function before you commit to the full implementation." 
+    },
+    { 
+        question: "What are the ongoing monthly costs?", 
+        answer: "If you choose our <a href='management' class='font-bold text-gray-900 underline hover:no-underline'> website management service </a>, we handle all ongoing fees and maintenance. Otherwise hosting for smaller sizes is typically $0/mo, but can go as high as $8/mo We'll provide you with exact pricing details." 
+    },
+    { 
+        question: "Will you handle domain and web hosting?", 
+        answer: "Yes, we'll take care of everything. We arrange domain registration and reliable web hosting so you don't have to worry about the technical details. The (.com) domain fee is included in our standard packages." 
+    },
+    { 
+        question: "Will my website work on mobile devices?", 
+        answer: "Absolutely. Every website we build is fully responsive and optimized for all devices. Your site will look stunning and function perfectly on desktops, tablets, and smartphones." 
+    },
+    { 
+        question: "Can I edit the website myself, or will you handle updates?", 
+        answer: "You have both options. We provide full access to your website with a user-friendly guide if you want to make your own edits. We also offer comprehensive website management services to keep your site updated, secure, and fresh with new content." 
+    },
+    { 
+        question: "What if I need to update my website regularly?", 
+        answer: "We implement user-friendly Google Sheets integration that allows you to update your website content quickly and easily without any technical knowledge. This solution is perfect for businesses that frequently update inventory, pricing, availability, or other dynamic content." 
+    },
+    { 
+        question: "How much input do I have in the design?", 
+        answer: "Website design is a collaborative process, and we value your input, feedback, and approval at every stage. Whether you have specific preferences or prefer to trust our creative expertise, we adapt to your needs. We thoroughly research your industry to create a design that perfectly aligns with your brand vision and business goals." 
+    },
+    { 
+        question: "What happens if I need technical support after launch?", 
+        answer: "We are happy to fix any issues or make tweaks after launch in 14 day period. After that we offer website management to keep your website secure and fresh." 
+    }
+];
+            const faqAccordion = document.getElementById('faq-accordion');
+            faqData.forEach(item => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'faq-item bg-white border border-gray-200 rounded-lg';
+                faqItem.innerHTML = `<div class="faq-question flex justify-between items-center p-5 cursor-pointer"><h3 class="text-lg font-medium">${item.question}</h3><div class="faq-icon text-2xl text-gray-500 font-light">+</div></div><div class="faq-answer px-5"><p class="text-gray-600 pb-5">${item.answer}</p></div>`;
+                faqAccordion.appendChild(faqItem);
+            });
+            faqAccordion.addEventListener('click', (e) => {
+                const question = e.target.closest('.faq-question');
+                if (!question) return;
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+                faqAccordion.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+                if (!wasActive) item.classList.add('active');
+            });
+            
+            
+            
+            // --- MOBILE MENU ---
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            mobileLinks.forEach(link => link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }));
+
+            // --- COPYRIGHT YEAR ---
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Seal Digital</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pixel-font: 'VT323', monospace;
+            --body-font: 'Inter', sans-serif;
+        }
+        body {
+            background-color: #f9fafb;
+            color: #11182b;
+            font-family: var(--body-font);
+        }
+        .font-pixel { font-family: var(--pixel-font); }
+        .font-heading { font-family: var(--body-font); font-weight: 800; }
+        
+                @media (min-width: 1280px) { /* Corresponds to Tailwind's 'xl' breakpoint */
+            html {
+                font-size: 115%; /* 16px * 1.25 = 20px base font */
+            }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm p-6 border-b border-gray-200 transition-transform duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="index.html" class="text-gray-900">
+                <img src="images/logoT.png" alt="Seal Digital Logo" class="h-10 w-auto">
+            </a>
+            <nav class="hidden md:flex space-x-8 text-base tracking-wider uppercase font-medium text-gray-600">
+                <a href="index.html" class="hover:text-gray-900 transition-colors">Website Development</a>
+                <a href="management.html" class="hover:text-gray-900 transition-colors">Website Management</a>
+                <a href="contact.html" class="hover:text-gray-900 transition-colors">Contact</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden z-50 text-gray-900">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200">
+            <div class="flex flex-col items-center space-y-6 py-8 text-lg uppercase tracking-widest text-gray-800">
+                <a href="index.html" class="mobile-link hover:text-black transition-colors">Web Development</a>
+                <a href="management.html" class="mobile-link hover:text-black transition-colors">Web Management</a>
+                <a href="contact.html" class="mobile-link hover:text-black transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Legal Content Section -->
+        <section class="py-32 md:py-40 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="bg-white border border-gray-200 rounded-lg p-8 md:p-12 shadow-xl max-w-4xl mx-auto">
+                    <h1 class="font-heading text-4xl md:text-5xl tracking-tight text-gray-900">Terms of Service</h1>
+                    <p class="mt-2 text-gray-500">Last Updated: October 2025</p>
+                    
+                    <div class="mt-8 space-y-6 text-gray-700 leading-relaxed">
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">1. Agreement to Terms</h2>
+                        <p>By accessing and using the Seal Digital website (seal-digital.com) and our services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.</p>
+                        
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">2. Use License</h2>
+                        <p>Permission is granted to temporarily download one copy of the materials (information or software) on our website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Modify or copy the materials</li>
+                            <li>Use the materials for any commercial purpose or for any public display</li>
+                            <li>Attempt to decompile or reverse engineer any software contained on the website</li>
+                            <li>Remove any copyright or other proprietary notations from the materials</li>
+                            <li>Transfer the materials to another person or "mirror" the materials on any other server</li>
+                            <li>Violate any applicable laws or regulations</li>
+                        </ul>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">3. Website Services</h2>
+                        <p>Seal Digital provides custom web design and development services. We will make reasonable efforts to deliver services as agreed upon with you, but we cannot guarantee specific results, rankings, traffic, or conversion rates. The final deliverables and project scope will be outlined in your individual project agreement.</p>
+                        
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">4. Payment Terms</h2>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Payment is due as specified in your project agreement or invoice.</li>
+                            <li>We accept payment through Stripe.</li>
+                            <li>All prices are in USD unless otherwise specified and exclude applicable taxes.</li>
+                            <li>Refunds are issued at our discretion within 30 days of payment for services not yet started.</li>
+                            <li>Services already in progress or completed are non-refundable unless otherwise agreed in writing.</li>
+                            <li>Payment disputes must be raised within 30 days of the transaction.</li>
+                        </ul>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">5. Intellectual Property</h2>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Custom website designs and code created for you become your property upon full payment.</li>
+                            <li>You retain all ownership of content, images, and materials you provide to us.</li>
+                            <li>Pre-existing templates, frameworks, and general development techniques remain our intellectual property.</li>
+                            <li>We retain the right to use general methodologies and approaches developed during projects for other clients (without disclosing your specific project details).</li>
+                        </ul>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">6. User Responsibilities</h2>
+                        <p>You agree to use this website and our services only for lawful purposes and in a way that does not infringe upon the rights of others. Prohibited behavior includes:</p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Harassing or causing distress to any person.</li>
+                            <li>Providing false or misleading information during the service engagement.</li>
+                            <li>Requesting illegal services or content.</li>
+                            <li>Attempting to gain unauthorized access to our systems.</li>
+                        </ul>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">7. Communication and Project Information</h2>
+                        <p>By providing us with communication details (email, phone, Facebook, LinkedIn, etc.), business information, and any other materials, you authorize us to use this information solely for the purpose of delivering your web design services. We store this information in our internal documents and communications to facilitate your project.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">8. Disclaimers</h2>
+                        <p>This website and the materials are provided on an "as is" basis. We make no warranties, expressed or implied, and hereby disclaim all other warranties including, without limitation, implied warranties of merchantability, fitness for a particular purpose, or non-infringement of intellectual property rights.</p>
+                        <p>We do not warrant that the functions contained in the website will be uninterrupted or error-free, that defects will be corrected, or that our servers are free of viruses or bugs.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">9. Limitation of Liability</h2>
+                        <p>In no event shall Seal Digital or our suppliers be liable for any damages (including, without limitation, damages for loss of data, profit, or business interruption) arising out of the use or inability to use our services or materials on this website.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">10. Accuracy of Materials</h2>
+                        <p>The materials appearing on our website could include technical, typographical, or photographic errors. We do not warrant that any materials on the website are accurate, complete, or current. We may make changes to website content at any time without notice.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">11. Links to Third Party Websites</h2>
+                        <p>We are not responsible for the contents of any websites linked from our site. The inclusion of any link does not imply endorsement by us. Use of any linked website is at the user's own risk.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">12. Modifications</h2>
+                        <p>We may revise these Terms of Service at any time without notice. By using our website, you are agreeing to be bound by the then current version of these Terms of Service.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">13. Governing Law</h2>
+                        <p>These Terms of Service are governed by and construed in accordance with the laws of the United States. Any disputes arising from these terms or our services shall be resolved through informal negotiation or, if necessary, through binding arbitration or legal proceedings in U.S. courts.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">14. Contact Information</h2>
+                        <p>If you have any questions about these Terms of Service, please contact us <a href="/contact/other" class="text-gray-900 font-semibold underline hover:no-underline">here</a> or at <a href="mailto:hello@seal-digital.com" class="text-gray-900 font-semibold underline hover:no-underline">hello@seal-digital.com</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-black text-white py-16">
+        <div class="container mx-auto px-4">
+            
+            <!-- Top Section: Services -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-16">
+                <!-- Service 1 -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-2">
+                        <a href="index.html" class="hover:underline">Website Design</a>
+                    </h3>
+                    <p class="text-gray-400 max-w-sm">Authentic, modern, and affordable website designs for small businesses. Get your free prototype today.</p>
+                </div>
+                <!-- Service 2 -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-2">
+                        <a href="management.html" class="hover:underline">Website Management</a>
+                    </h3>
+                    <p class="text-gray-400 max-w-sm">Reliable services to keep your site up to date and running smoothly so you can focus on your business.</p>
+                </div>
+            </div>
+
+            <!-- Bottom Section: Copyright, Legal, and Socials -->
+            <div class="py-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center gap-8">
+                <!-- Left: Logo, Copyright, and Legal -->
+                <div class="flex items-center gap-x-6">
+                    <!-- Logo -->
+                    <a href="index.html" class="block flex-shrink-0">
+                        <img src="images/logoTG.png" alt="Seal Digital Logo" class="h-10 w-auto">
+                    </a>
+                    <!-- Text Stack -->
+                    <div class="text-sm text-gray-500">
+                        <p class="whitespace-nowrap">&copy; <span id="copyright-year"></span> Seal Digital. All Rights Reserved.</p>
+                        <nav class="flex items-center gap-x-4 text-xs mt-1">
+                           <a href="tos.html" class="hover:text-white transition-colors">Terms of Service</a>
+                           <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Right: Social Icons -->
+                <div class="flex items-center gap-5 text-gray-400">
+                    <a href="https://www.trustpilot.com/review/seal-digital.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.952 8.747l-6.262-.54L14.12 2.45c-.24-.48-.72-.79-1.256-.79-.538 0-1.018.31-1.257-.79L9.038 8.207l-6.26.54c-.564.048-.99.504-1.02 1.07-.03.564.39 1.044.948 1.11l4.75 3.203-1.57 5.797c-.12.456.09.948.5 1.188.41.24.91.21 1.29-.072l5.4-3.41 5.4 3.41c.18.12.38.18.58.18.23 0 .46-.08.65-.25.41-.24.62-.73.5-1.18l-1.57-5.798 4.75-3.204c.55-.06.98-.54.95-1.11a1.13 1.13 0 00-.51-.81zm-9.832 3.194l-2.02 1.36-1.55 1.39-1.1-4.08 1.09-4.08 4.34.37.02 8.76-1.87-1.18z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61580315578302" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/0000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- NAVBAR HIDE/SHOW ON SCROLL ---
+            const header = document.getElementById('main-header');
+            let lastScrollY = window.scrollY;
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) { 
+                    if (lastScrollY < window.scrollY) { header.classList.add('-translate-y-full'); } 
+                    else { header.classList.remove('-translate-y-full'); }
+                } else { header.classList.remove('-translate-y-full'); }
+                lastScrollY = window.scrollY;
+            });
+            
+            // --- MOBILE MENU ---
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            mobileLinks.forEach(link => link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }));
+
+            // --- COPYRIGHT YEAR ---
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Management Services | Seal Digital</title>
+    <meta name="description" content="Reliable website management services to keep your site secure, updated, and optimized for peak performance. Let Seal Digital handle the technical details.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pixel-font: 'VT323', monospace;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb; /* Light gray background */
+            color: #11182b; /* Dark gray text */
+            font-family: var(--body-font);
+        }
+
+        .font-pixel {
+            font-family: var(--pixel-font);
+        }
+        
+        .font-heading {
+            font-family: var(--body-font);
+            font-weight: 800; /* Extra-bold for headings */
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .faq-item .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px; /* Increased for longer answers */
+        }
+        .faq-item .faq-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .cta-glow {
+            animation: pulse-dark 2s infinite;
+        }
+
+        @keyframes pulse-dark {
+            0% { box-shadow: 0 0 0 0 rgba(17, 24, 39, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(17, 24, 39, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(17, 24, 39, 0); }
+        }
+        
+        @media (min-width: 1280px) {
+            html {
+                font-size: 115%;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm p-6 border-b border-gray-200 transition-transform duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="test.html" class="text-gray-900">
+                <img src="images/logoT.png" alt="Seal Digital Logo" class="h-10 w-auto">
+            </a>
+            <nav class="hidden md:flex space-x-8 text-base tracking-wider uppercase font-medium text-gray-600">
+                <a href="/" class="hover:text-gray-900 transition-colors">Website Development</a>
+                <a href="#" class="text-gray-900 transition-colors">Website Management</a>
+                <a href="contact" class="hover:text-gray-900 transition-colors">Contact</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden z-50 text-gray-900">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200">
+            <div class="flex flex-col items-center space-y-6 py-8 text-lg uppercase tracking-widest text-gray-800">
+                <a href="/" class="mobile-link hover:text-black transition-colors">Web Development</a>
+                <a href="#" class="mobile-link hover:text-black transition-colors">Web Management</a>
+                <a href="contact" class="mobile-link hover:text-black transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-48 pb-32 flex items-center justify-center text-center overflow-hidden bg-white">
+            <div class="relative z-10 p-4">
+                <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl mb-4 tracking-tighter text-gray-900">
+                    Website Management
+                </h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-600">
+                    Keep your site secure, updated, and optimized for peak performance. We handle the technical details so you can focus on your business.
+                </p>
+                <a href="#pricing" class="mt-8 inline-block bg-gray-900 text-white font-bold py-3 px-8 uppercase tracking-wider transition-transform duration-300 hover:scale-105">
+                    View Plans
+                </a>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="py-20 md:py-32 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="bg-white border border-gray-200 rounded-lg p-8 md:p-12 shadow-xl reveal max-w-6xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                        <div class=" overflow-hidden">
+                           <img src="images/clapcash.png" alt="Website Management Graphic" class="w-full h-auto object-contain">
+                        </div>
+                        <div class="flex flex-col h-full">
+                            <div>
+                                <h3 class="text-3xl font-bold mb-1 text-gray-900">Website Management</h3>
+                                <p class="font-pixel text-xl text-gray-500 mb-6">// Starting at $29/mo</p>
+                                <p class="text-gray-600 mb-6">We handle every aspect of your website's ongoing maintenance, technical support, and optimization—so your site stays secure, fast, and hassle-free. Focus on growing your business while we take care of all the technical details behind the scenes.</p>
+                                
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-gray-600">
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2">&gt;</span> Content Updates</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2">&gt;</span> Hosting + SSL</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2">&gt;</span> Software Updates</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2">&gt;</span> Backups</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2">&gt;</span> DNS Management</p>
+                                    <p class="flex items-start"><span class="text-gray-400 mr-2">&gt;</span> Technical Maintenance</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-auto pt-8 text-right">
+                                <a href="contact/management" class="inline-block bg-gray-900 text-white font-bold py-3 px-8 uppercase tracking-wider transition-transform duration-300 hover:scale-105 rounded-md">
+                                    Get Started
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="font-heading text-4xl md:text-5xl text-center mb-16 tracking-tight reveal">What's Included In Our Plans</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Features will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 md:py-32 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <h2 class="font-heading text-4xl md:text-5xl mb-4 tracking-tight">Simple, Transparent Pricing</h2>
+                    <p class="text-lg text-gray-600 mb-16">
+                        Whether you require comprehensive website management, regular content updates, or technical support, we're here to help. Trust us to handle the complexities so you can focus on what matters most.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:flex lg:justify-center gap-8 items-start">
+                    <!-- Basic Plan -->
+                    <div class="bg-white border border-gray-200 rounded-lg p-8 shadow-lg reveal lg:w-2/5">
+                        <h3 class="text-2xl font-bold text-center mb-2">Basic</h3>
+                        <p class="text-center text-5xl font-bold mb-4">$29<span class="text-lg font-medium text-gray-500">/MO</span></p>
+                        <hr class="my-6 border-gray-200">
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Hosting + SSL</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Software Updates</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Site Monitoring</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Monthly Backups</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> DNS Management</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Technical Maintenance</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Issue Resolution</li>
+                        </ul>
+                        <a href="contact/management?plan=basic" class="mt-8 block w-full text-center bg-gray-200 text-gray-800 font-bold py-3 px-6 uppercase tracking-wider transition-colors duration-300 hover:bg-gray-300">Get Started</a>
+                    </div>
+
+                    <!-- Professional Plan -->
+                    <div class="bg-white border-2 border-gray-900 rounded-lg p-8 shadow-2xl relative reveal lg:w-2/5">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs font-bold uppercase tracking-wider px-4 py-1 rounded-full">Popular</div>
+                        <h3 class="text-2xl font-bold text-center mb-2">Professional</h3>
+                        <p class="text-center text-5xl font-bold mb-4">$69<span class="text-lg font-medium text-gray-500">/MO</span></p>
+                        <hr class="my-6 border-gray-200">
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Content Updates</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Hosting + SSL</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Software Updates</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Site Monitoring</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Weekly Backups</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> DNS Management</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Technical Maintenance</li>
+                            <li class="flex items-start"><span class="text-gray-400 mr-3 ">&gt;</span> Priority Issue Resolution</li>
+                        </ul>
+                        <a href="contact/management?plan=professional" class="mt-8 block w-full text-center bg-gray-900 text-white font-bold py-3 px-6 uppercase tracking-wider transition-transform duration-300 hover:scale-105">Get Started</a>
+                    </div>
+                </div>
+                 <p class="text-center text-gray-600 mt-12 reveal">Don't fit in a box? <a href="contact/other" class="font-bold text-gray-900 underline hover:no-underline">Get in touch.</a></p>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="relative py-16 md:py-20 bg-white border-y border-gray-200">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-5xl mx-auto min-h-[6rem] flex flex-col items-center justify-center">
+                    <p id="testimonial-quote" class="text-2xl md:text-3xl italic text-gray-700"></p>
+                </div>
+            </div>
+            
+            <!-- Trustpilot Link Icon -->
+            <a href="https://www.trustpilot.com/review/seal-digital.com" target="_blank" rel="noopener noreferrer" aria-label="See all reviews on Trustpilot" class="absolute bottom-5 right-5 text-gray-400 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                </svg>
+            </a>
+        </section>
+
+
+        <!-- FAQ Section -->
+        <section id="faq" class="relative py-20 md:py-32 bg-gray-50">
+            <div class="container mx-auto px-4 max-w-3xl relative z-10">
+                <h2 class="font-heading text-4xl md:text-5xl text-center mb-16 tracking-tight reveal">Common Questions.</h2>
+                <div id="faq-accordion" class="space-y-2 reveal">
+                    <!-- FAQ Items will be injected here by JS -->
+                </div>
+
+                <p class="text-center text-gray-600 mt-12 reveal">Have other questions? <a href="contact/other" class="font-bold text-gray-900 underline hover:no-underline">Get in touch.</a></p>
+                
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 md:py-32 bg-black text-white text-center">
+            <div class="container mx-auto px-4 reveal">
+                <h2 class="font-heading text-4xl md:text-5xl mb-4 tracking-tight">Ready to Grow Your Business?</h2>
+                <p class="max-w-xl mx-auto text-gray-300 mb-8">
+                    Let's discuss your project. We offer a free, no-obligation consultation to see how we can help.
+                </p>
+                <a href="contact/management" class="cta-glow inline-block bg-white text-gray-900 font-bold text-lg py-4 px-10 uppercase tracking-wider transition-transform duration-300 hover:scale-105">
+                    hello@sealdigital.com
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer id="contact" class="bg-black text-white py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-16">
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">
+                            <a href="/" class="hover:underline">Website Design</a>
+                        </h3>
+                        <p class="text-gray-400 max-w-sm">Authentic, modern, and affordable website designs for small businesses. Get your free prototype today.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-2">
+                            <a href="#" class="hover:underline">Website Management</a>
+                        </h3>
+                        <p class="text-gray-400 max-w-sm">Reliable services to keep your site up to date and running smoothly so you can focus on your business.</p>
+                    </div>
+                </div>
+                <div class="py-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="flex items-center gap-x-6">
+                        <a href="#" class="block flex-shrink-0">
+                            <img src="images/logoTG.png" alt="Seal Digital Logo" class="h-10 w-auto">
+                        </a>
+                        <div class="text-sm text-gray-500">
+                            <p class="whitespace-nowrap">&copy; <span id="copyright-year"></span> Seal Digital. All Rights Reserved.</p>
+                            <nav class="flex items-center gap-x-4 text-xs mt-1">
+                               <a href="/tos" class="hover:text-white transition-colors">Terms of Service</a>
+                               <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-5 text-gray-400">
+                        <a href="https://www.trustpilot.com/review/seal-digital.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/000/svg"><path d="M22.952 8.747l-6.262-.54L14.12 2.45c-.24-.48-.72-.79-1.256-.79-.538 0-1.018.31-1.257-.79L9.038 8.207l-6.26.54c-.564.048-.99.504-1.02 1.07-.03.564.39 1.044.948 1.11l4.75 3.203-1.57 5.797c-.12.456.09.948.5 1.188.41.24.91.21 1.29-.072l5.4-3.41 5.4 3.41c.18.12.38.18.58.18.23 0 .46-.08.65-.25.41-.24.62-.73.5-1.18l-1.57-5.798 4.75-3.204c.55-.06.98-.54.95-1.11a1.13 1.13 0 00-.51-.81zm-9.832 3.194l-2.02 1.36-1.55 1.39-1.1-4.08 1.09-4.08 4.34.37.02 8.76-1.87-1.18z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61580315578302" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/0000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- NAVBAR HIDE/SHOW ON SCROLL ---
+            const header = document.getElementById('main-header');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) { 
+                    if (lastScrollY < window.scrollY) {
+                        header.classList.add('-translate-y-full');
+                    } else {
+                        header.classList.remove('-translate-y-full');
+                    }
+                } else {
+                     header.classList.remove('-translate-y-full');
+                }
+                lastScrollY = window.scrollY;
+            });
+            
+            // --- ON-SCROLL REVEAL ANIMATION ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal').forEach(el => { observer.observe(el); });
+
+            // --- FEATURES DATA & INJECTION ---
+
+const featuresData = [
+    { title: 'Content Updates', description: "Keep your website fresh and engaging with regular content updates. Simply send us your changes, and we'll implement them promptly and professionally across your site." },
+    { title: 'Performance Optimization', description: 'Keep your website running at peak performance with regular optimization. We monitor load times, optimize code, and ensure your site delivers the best user experience possible.' },
+    { title: 'Web Hosting', description: 'Experience lightning-fast and secure website hosting. Our optimized hosting infrastructure ensures exceptional performance, reliability, and scalability for your business.' },
+    { title: 'SSL Certificate', description: 'Secure your website with industry-standard SSL encryption. We handle installation and renewal automatically, protecting user data and boosting search engine rankings.' },
+    { title: 'Software Updates', description: 'Stay current with the latest software updates and security patches. We proactively maintain your website to ensure optimal performance and protection against vulnerabilities.' },
+    { title: 'Framework Maintenance', description: "Keep your website's underlying technology stack up-to-date. We manage all framework updates and dependencies to ensure seamless functionality and enhanced security." },
+    { title: 'Weekly Backups', description: 'Protect your valuable website data with automated weekly backups. Our comprehensive backup system ensures quick recovery and complete peace of mind for your business.' },
+    { title: 'Site Monitoring', description: 'We regularly check your website to ensure everything is working properly. If we notice any issues or broken functionality, we address them quickly to keep your site running smoothly.' },
+    { title: 'DNS Management', description: 'We handle all Domain Name System (DNS) configurations and optimizations, ensuring fast loading times, reliable email delivery, and seamless user experience.' },
+    { title: 'Website Migration', description: 'Seamlessly transfer your website when needed. Our expert team manages the entire migration process with zero downtime and complete data integrity guaranteed.' },
+    { title: 'Issue Resolution', description: 'Get rapid, expert solutions to any website challenges. Our technical team quickly diagnoses and resolves issues to keep your site running smoothly at all times.' },
+    { title: 'Technical Support', description: 'Receive personalized technical support tailored to your specific needs. Our dedicated team provides expert guidance and assistance whenever you need it.' },
+];
+            const featuresContainer = document.querySelector('#features .grid');
+            if (featuresContainer) { // Check if the container exists before trying to add to it
+                featuresData.forEach(feature => {
+                    const featureEl = document.createElement('div');
+                    featureEl.className = 'reveal bg-gray-50 p-6 rounded-lg border border-gray-200';
+                    featureEl.innerHTML = `
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">${feature.title}</h3>
+                        <p class="text-gray-600">${feature.description}</p>
+                    `;
+                    featuresContainer.appendChild(featureEl);
+                    // THIS IS THE FIX: We must add the new elements to the observer so they can animate on scroll
+                    observer.observe(featureEl);
+                });
+            }
+            
+            // --- TESTIMONIALS SLIDER ---
+             class TextScramble {
+                constructor(el) { this.el = el; this.chars = '!<>-_\\/[]{}—=+*^?#_'; this.update = this.update.bind(this); }
+                setText(newText) {
+                    const oldText = this.el.innerText;
+                    const length = Math.max(oldText.length, newText.length);
+                    const promise = new Promise((resolve) => this.resolve = resolve);
+                    this.queue = [];
+                    for (let i = 0; i < length; i++) {
+                        const from = oldText[i] || ''; const to = newText[i] || '';
+                        const start = Math.floor(Math.random() * 40); const end = start + Math.floor(Math.random() * 40);
+                        this.queue.push({ from, to, start, end });
+                    }
+                    cancelAnimationFrame(this.frameRequest); this.frame = 0; this.update(); return promise;
+                }
+                update() {
+                    let output = ''; let complete = 0;
+                    for (let i = 0, n = this.queue.length; i < n; i++) {
+                        let { from, to, start, end, char } = this.queue[i];
+                        if (this.frame >= end) { complete++; output += to;
+                        } else if (this.frame >= start) {
+                            if (!char || Math.random() < 0.28) { char = this.randomChar(); this.queue[i].char = char; }
+                            output += `<span class="text-gray-400">${char}</span>`;
+                        } else { output += from; }
+                    }
+                    this.el.innerHTML = output;
+                    if (complete === this.queue.length) { this.resolve();
+                    } else { this.frameRequest = requestAnimationFrame(this.update); this.frame++; }
+                }
+                randomChar() { return this.chars[Math.floor(Math.random() * this.chars.length)]; }
+            }
+
+            const testimonials = [
+                { quote: "..beyond happy with the how the website turned out..", author: "David Chen", company: "Flow HVAC" },
+                { quote: "..provided instruction in an easy to follow way..", author: "Mike R.", company: "Apexodm" },
+                { quote: "..went out of their way to answer all my questions in a thorough and timely fashion.", author: "David Chen", company: "Flow HVAC" },
+                { quote: "I will absolutely work with Seal Digital in the future..", author: "David Chen", company: "Flow HVAC" },
+                { quote: "..provided easy to follow instructions for updating the website.", company: "Struxture Architects" }
+            ];
+            let currentTestimonial = 0;
+            const testimonialQuoteEl = document.getElementById('testimonial-quote');
+            const testimonialFx = new TextScramble(testimonialQuoteEl);
+
+            function showTestimonial() {
+                const testimonial = testimonials[currentTestimonial];
+                testimonialFx.setText(`"${testimonial.quote}"`);
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            }
+            
+            if (testimonialQuoteEl) { // Check if the element exists before running
+                showTestimonial();
+                setInterval(showTestimonial, 8000);
+            }
+
+
+            // --- FAQ ACCORDION ---
+            const faqData = [
+                { 
+                    question: "Who is the hosting plan for?", 
+                    answer: "We recommend our professional hosting plan for larger websites that need reliable performance and support. For smaller websites, it's perfect if you want a hassle-free experience without dealing with technical setup, server maintenance, or hosting issues - you can focus on your business while we handle everything technical." 
+                },
+                { 
+                    question: "Is hosting included in the price?", 
+                    answer: "Yes, all hosting costs for standard-sized websites are included in our management plans. You won't have any surprise fees or additional hosting bills." 
+                },
+                { 
+                    question: "What's included in content updates?", 
+                    answer: "Content updates include changes to existing text, images, and media on your website. This covers updating product information, news posts, contact details, and similar content modifications. Please note that graphic design work, copywriting, SEO optimization, or building new pages and features may require separate billing." 
+                },
+                { 
+                    question: "How quickly will my content updates be completed?", 
+                    answer: "Our goal is to complete most updates within the same business day. More complex changes may take up to 3 business days. If you have time-sensitive updates, please let us know in advance and we'll prioritize them accordingly." 
+                },
+                { 
+                    question: "Do you only manage websites you built?", 
+                    answer: "Not at all! We provide website management services for all types of websites, whether we built them or not. If your website was developed by another agency or freelancer, we're still here to provide comprehensive support and ensure your site runs smoothly." 
+                },
+                { 
+                    question: "Can I cancel my subscription at any time?", 
+                    answer: "Yes, you can cancel at any time with no penalties or fees. Your current plan will remain active until your next billing cycle, so you'll receive the full value of what you've paid for." 
+                }
+            ];
+            const faqAccordion = document.getElementById('faq-accordion');
+            faqData.forEach(item => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'faq-item bg-white border border-gray-200 rounded-lg';
+                faqItem.innerHTML = `<div class="faq-question flex justify-between items-center p-5 cursor-pointer"><h3 class="text-lg font-medium">${item.question}</h3><div class="faq-icon text-2xl text-gray-500 font-light">+</div></div><div class="faq-answer px-5"><p class="text-gray-600 pb-5">${item.answer}</p></div>`;
+                faqAccordion.appendChild(faqItem);
+            });
+            faqAccordion.addEventListener('click', (e) => {
+                const question = e.target.closest('.faq-question');
+                if (!question) return;
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+                faqAccordion.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+                if (!wasActive) item.classList.add('active');
+            });
+            
+            // --- MOBILE MENU ---
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            mobileLinks.forEach(link => link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }));
+
+            // --- COPYRIGHT YEAR ---
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

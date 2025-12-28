@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Seal Digital</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pixel-font: 'VT323', monospace;
+            --body-font: 'Inter', sans-serif;
+        }
+        body {
+            background-color: #f9fafb;
+            color: #11182b;
+            font-family: var(--body-font);
+        }
+        .font-pixel { font-family: var(--pixel-font); }
+        .font-heading { font-family: var(--body-font); font-weight: 800; }
+        
+                @media (min-width: 1280px) { /* Corresponds to Tailwind's 'xl' breakpoint */
+            html {
+                font-size: 115%; /* 16px * 1.25 = 20px base font */
+            }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm p-6 border-b border-gray-200 transition-transform duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="index.html" class="text-gray-900">
+                <img src="images/logoT.png" alt="Seal Digital Logo" class="h-10 w-auto">
+            </a>
+            <nav class="hidden md:flex space-x-8 text-base tracking-wider uppercase font-medium text-gray-600">
+                <a href="index.html" class="hover:text-gray-900 transition-colors">Website Development</a>
+                <a href="management.html" class="hover:text-gray-900 transition-colors">Website Management</a>
+                <a href="contact.html" class="hover:text-gray-900 transition-colors">Contact</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden z-50 text-gray-900">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200">
+            <div class="flex flex-col items-center space-y-6 py-8 text-lg uppercase tracking-widest text-gray-800">
+                <a href="index.html" class="mobile-link hover:text-black transition-colors">Web Development</a>
+                <a href="management.html" class="mobile-link hover:text-black transition-colors">Web Management</a>
+                <a href="contact.html" class="mobile-link hover:text-black transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Legal Content Section -->
+        <section class="py-32 md:py-40 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="bg-white border border-gray-200 rounded-lg p-8 md:p-12 shadow-xl max-w-4xl mx-auto">
+                    <h1 class="font-heading text-4xl md:text-5xl tracking-tight text-gray-900">Privacy Policy</h1>
+                    <p class="mt-2 text-gray-500">Last Updated: October 2025</p>
+                    
+                    <div class="mt-8 space-y-6 text-gray-700 leading-relaxed">
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">1. Introduction</h2>
+                        <p>Seal Digital ("we," "us," "our," or "Company") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at seal-digital.com and engage with our web design services.</p>
+                        <p>Please read this Privacy Policy carefully. If you do not agree with our policies and practices, please do not use our website or services.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">2. Information We Collect</h2>
+                        <p>We collect information from you in the following ways:</p>
+                        <h3 class="font-semibold text-gray-800 mt-2">Information You Provide Directly:</h3>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Contact information (email address, phone number, Facebook, LinkedIn, or other communication channels you choose to share)</li>
+                            <li>Your name (if you choose to provide it)</li>
+                            <li>Business information (business name, industry, business goals, website requirements, existing content, images, or any materials you provide for your website project)</li>
+                            <li>Any other information you voluntarily provide during communications or project planning</li>
+                        </ul>
+                        <h3 class="font-semibold text-gray-800 mt-4">Information Collected Automatically:</h3>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Browser type and operating system</li>
+                            <li>IP address</li>
+                            <li>Pages visited on our website</li>
+                            <li>Device information</li>
+                            <li>Cookies and similar tracking technologies (if applicable)</li>
+                        </ul>
+                        <p><strong class="font-semibold text-gray-800">Important Note:</strong> We do not systematically collect or track personal data. Information is collected only as needed to provide our services and is kept within our internal documents and project communications.</p>
+                        
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">3. How We Use Your Information</h2>
+                        <p>We use the information we collect in the following ways:</p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>To provide and deliver web design and development services</li>
+                            <li>To communicate with you about your project</li>
+                            <li>To store project files and materials for reference and revision purposes</li>
+                            <li>To process payments through Stripe</li>
+                            <li>To comply with legal obligations</li>
+                            <li>To improve our services based on feedback</li>
+                        </ul>
+                        <p>We do not use your information for marketing purposes or send unsolicited marketing communications unless you explicitly consent.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">4. How We Store Your Information</h2>
+                        <p>Information you provide to us is stored in:</p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Internal project documents and files</li>
+                            <li>Email communications and conversations</li>
+                            <li>Our project management and communication platforms</li>
+                            <li>Payment processing records with Stripe</li>
+                        </ul>
+                        <p>We keep this information only as long as necessary to complete your project and maintain records for legitimate business purposes (typically 7 years for accounting and legal compliance).</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">5. Payment Processing</h2>
+                        <p>Payment information is processed securely through Stripe, a third-party payment processor. We do not store full credit card information on our servers. Stripe handles all payment processing in accordance with PCI Data Security Standards and their privacy policy.</p>
+                        <p>We only receive confirmation of successful payment and limited transaction details necessary to complete your order and provide invoices.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">6. Information Sharing and Disclosure</h2>
+                        <p><strong class="font-semibold text-gray-800">We do not sell, trade, rent, or share your personal information with third parties.</strong> The only exception is:</p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li><strong class="font-semibold text-gray-800">Payment Processor:</strong> Stripe processes your payment information as described above.</li>
+                            <li><strong class="font-semibold text-gray-800">Legal Compliance:</strong> If required by law, court order, or legal process, we may disclose information.</li>
+                            <li><strong class="font-semibold text-gray-800">Business Necessity:</strong> In the unlikely event of a merger or acquisition of Seal Digital, your information may be transferred.</li>
+                        </ul>
+                        <p>Your business information and project details are kept confidential and not disclosed to other clients or third parties.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">7. Cookies and Tracking</h2>
+                        <p>Our website may use minimal cookies to improve user experience. You can control cookies through your browser settings. Disabling cookies may affect website functionality but will not impact your ability to contact us or receive services.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">8. Data Security</h2>
+                        <p>We implement reasonable security measures to protect your information from unauthorized access, alteration, or disclosure. However, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security, and you provide information at your own risk.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">9. Your Rights</h2>
+                        <p>Depending on your location, you may have rights regarding your personal information:</p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li><strong class="font-semibold text-gray-800">Right to Access:</strong> You can request a copy of information we hold about you.</li>
+                            <li><strong class="font-semibold text-gray-800">Right to Correction:</strong> You can request corrections to inaccurate information.</li>
+                            <li><strong class="font-semibold text-gray-800">Right to Deletion:</strong> You can request deletion of your personal information (subject to legal retention requirements).</li>
+                            <li><strong class="font-semibold text-gray-800">Right to Opt-Out:</strong> You can opt out of communications with us.</li>
+                            <li><strong class="font-semibold text-gray-800">Right to Data Portability:</strong> You can request your project files and information in a portable format.</li>
+                        </ul>
+                        <p>To exercise any of these rights, please contact us <a href="/contact/other" class="text-gray-900 font-semibold underline hover:no-underline">here</a> or at <a href="mailto:hello@seal-digital.com" class="text-gray-900 font-semibold underline hover:no-underline">hello@seal-digital.com</a>.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">10. European Users (GDPR)</h2>
+                        <p>If you are located in the European Union or other jurisdictions with data protection regulations, your information is processed in compliance with applicable laws. Our lawful basis for processing is typically:</p>
+                        <ul class="list-disc list-inside space-y-2 pl-4">
+                            <li>Fulfillment of our contract to provide web design services</li>
+                            <li>Your explicit consent</li>
+                            <li>Our legitimate business interests in delivering services and maintaining records</li>
+                        </ul>
+                        <p>You have the right to lodge a complaint with your local data protection authority if you believe your rights have been violated.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">11. California Users (CCPA)</h2>
+                        <p>If you are a California resident, you have specific rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information is collected, the right to delete your information, and the right to opt-out. We do not sell personal information. To exercise your CCPA rights, contact us <a href="/contact/other" class="text-gray-900 font-semibold underline hover:no-underline">here</a> or at <a href="mailto:hello@seal-digital.com" class="text-gray-900 font-semibold underline hover:no-underline">hello@seal-digital.com</a>.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">12. Third-Party Links</h2>
+                        <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of external sites. We encourage you to review their privacy policies before providing any personal information.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">13. Changes to This Privacy Policy</h2>
+                        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for legal reasons. We will notify you of material changes by updating the "Last Updated" date and posting the revised policy on our website.</p>
+
+                        <h2 class="text-2xl font-bold text-gray-800 pt-4">14. Contact Us</h2>
+                        <p>If you have questions or concerns about this Privacy Policy or our privacy practices, please contact us:</p>
+                        <a href="/contact/other" class="text-gray-900 font-semibold underline hover:no-underline">here</a> or at <a href="mailto:hello@seal-digital.com" class="text-gray-900 font-semibold underline hover:no-underline">hello@seal-digital.com</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-black text-white py-16">
+        <div class="container mx-auto px-4">
+            
+            <!-- Top Section: Services -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-16">
+                <!-- Service 1 -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-2">
+                        <a href="index.html" class="hover:underline">Website Design</a>
+                    </h3>
+                    <p class="text-gray-400 max-w-sm">Authentic, modern, and affordable website designs for small businesses. Get your free prototype today.</p>
+                </div>
+                <!-- Service 2 -->
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-2">
+                        <a href="management.html" class="hover:underline">Website Management</a>
+                    </h3>
+                    <p class="text-gray-400 max-w-sm">Reliable services to keep your site up to date and running smoothly so you can focus on your business.</p>
+                </div>
+            </div>
+
+            <!-- Bottom Section: Copyright, Legal, and Socials -->
+            <div class="py-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center gap-8">
+                <!-- Left: Logo, Copyright, and Legal -->
+                <div class="flex items-center gap-x-6">
+                    <!-- Logo -->
+                    <a href="index.html" class="block flex-shrink-0">
+                        <img src="images/logoTG.png" alt="Seal Digital Logo" class="h-10 w-auto">
+                    </a>
+                    <!-- Text Stack -->
+                    <div class="text-sm text-gray-500">
+                        <p class="whitespace-nowrap">&copy; <span id="copyright-year"></span> Seal Digital. All Rights Reserved.</p>
+                        <nav class="flex items-center gap-x-4 text-xs mt-1">
+                           <a href="tos.html" class="hover:text-white transition-colors">Terms of Service</a>
+                           <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Right: Social Icons -->
+                <div class="flex items-center gap-5 text-gray-400">
+                    <a href="https://www.trustpilot.com/review/seal-digital.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.952 8.747l-6.262-.54L14.12 2.45c-.24-.48-.72-.79-1.256-.79-.538 0-1.018.31-1.257-.79L9.038 8.207l-6.26.54c-.564.048-.99.504-1.02 1.07-.03.564.39 1.044.948 1.11l4.75 3.203-1.57 5.797c-.12.456.09.948.5 1.188.41.24.91.21 1.29-.072l5.4-3.41 5.4 3.41c.18.12.38.18.58.18.23 0 .46-.08.65-.25.41-.24.62-.73.5-1.18l-1.57-5.798 4.75-3.204c.55-.06.98-.54.95-1.11a1.13 1.13 0 00-.51-.81zm-9.832 3.194l-2.02 1.36-1.55 1.39-1.1-4.08 1.09-4.08 4.34.37.02 8.76-1.87-1.18z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61580315578302" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/0000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- NAVBAR HIDE/SHOW ON SCROLL ---
+            const header = document.getElementById('main-header');
+            let lastScrollY = window.scrollY;
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) { 
+                    if (lastScrollY < window.scrollY) { header.classList.add('-translate-y-full'); } 
+                    else { header.classList.remove('-translate-y-full'); }
+                } else { header.classList.remove('-translate-y-full'); }
+                lastScrollY = window.scrollY;
+            });
+            
+            // --- MOBILE MENU ---
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+            mobileLinks.forEach(link => link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }));
+
+            // --- COPYRIGHT YEAR ---
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>
