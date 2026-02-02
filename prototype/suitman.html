@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Suit Man - Mount Vernon's Premier Men's Clothier. Celebrating 10 years of style, value, and impeccable service.">
+    <title>Suit Man | Mount Vernon, NY</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+    /* --- RESET & VARIABLES --- */
+    :root {
+        --hunter-green: #1A3C34;
+        --deep-burgundy: #5D1820;
+        --rich-cream: #F5F1E6;
+        --gold-accent: #C5A059;
+        --text-dark: #121212;
+        --text-cream: #F5F1E6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+        font-family: 'Lora', serif;
+        background-color: var(--rich-cream);
+        color: var(--text-dark);
+        line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+        color: var(--hunter-green);
+    }
+
+    .promo-font {
+        font-family: 'Anton', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* --- UTILITIES --- */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        font-family: 'Cinzel', serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        border: 2px solid var(--gold-accent);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: var(--deep-burgundy);
+        color: var(--text-cream);
+        border-color: var(--deep-burgundy);
+    }
+
+    .btn-primary:hover {
+        background-color: transparent;
+        color: var(--deep-burgundy);
+    }
+
+    .section-divider {
+        text-align: center;
+        margin: 40px 0;
+        color: var(--gold-accent);
+        font-size: 24px;
+    }
+
+    /* --- HEADER --- */
+    header {
+        background-color: var(--hunter-green);
+        color: var(--text-cream);
+        position: relative;
+        border-bottom: 5px solid var(--gold-accent);
+    }
+
+    .top-bar {
+        background-color: var(--deep-burgundy);
+        text-align: center;
+        padding: 8px;
+        font-family: 'Anton', sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        font-family: 'Cinzel', serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--gold-accent);
+        text-shadow: 2px 2px 0px #000;
+    }
+
+    .logo span { color: var(--rich-cream); }
+
+    nav ul { list-style: none; display: flex; gap: 25px; }
+
+    nav ul li a {
+        font-family: 'Cinzel', serif;
+        font-weight: 600;
+        color: var(--rich-cream);
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover { color: var(--gold-accent); }
+
+    /* --- HERO SECTION --- */
+    .hero {
+        background-color: var(--hunter-green);
+        background-image: linear-gradient(rgba(26, 60, 52, 0.85), rgba(26, 60, 52, 0.9)), url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=2071&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        color: var(--text-cream);
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        color: var(--gold-accent);
+        margin-bottom: 20px;
+        line-height: 1.1;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        border-top: 1px solid var(--gold-accent);
+        border-bottom: 1px solid var(--gold-accent);
+        padding: 15px 0;
+        background-color: rgba(0,0,0,0.2);
+    }
+
+    /* --- FEATURES GRID --- */
+    .features { padding: 60px 0; background-color: #fff; }
+
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .feature-card {
+        border: 1px solid var(--hunter-green);
+        padding: 30px;
+        text-align: center;
+        background-color: var(--rich-cream);
+        transition: transform 0.3s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+        font-size: 40px;
+        color: var(--deep-burgundy);
+        margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+        font-family: 'Cinzel', serif;
+        margin-bottom: 15px;
+        border-bottom: 2px solid var(--gold-accent);
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    /* --- GALLERY SECTION (NEW) --- */
+    .gallery {
+        background-color: var(--text-dark);
+        padding: 80px 0;
+    }
+    
+    .gallery-header {
+        text-align: center;
+        margin-bottom: 40px;
+        color: var(--rich-cream);
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        height: 300px;
+        border: 4px solid var(--hunter-green);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+
+    /* --- ABOUT SECTION --- */
+    .about {
+        background-color: var(--deep-burgundy);
+        color: var(--text-cream);
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .about h2 { color: var(--gold-accent); font-size: 2.5rem; margin-bottom: 20px; }
+    .about p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; }
+
+    /* --- INVENTORY LIST --- */
+    .inventory { padding: 80px 0; }
+    .inventory-header { text-align: center; margin-bottom: 50px; }
+    .inventory-header h2 { font-size: 3rem; }
+
+    .item-list {
+        list-style: none;
+        text-align: center;
+        columns: 2;
+        column-gap: 40px;
+    }
+
+    .item-list li {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .item-list li::before {
+        content: "♦";
+        color: var(--deep-burgundy);
+        margin-right: 10px;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+        background-color: var(--text-dark);
+        color: var(--text-cream);
+        padding: 60px 0 20px;
+        border-top: 5px solid var(--hunter-green);
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .contact-info h3 {
+        color: var(--gold-accent);
+        font-family: 'Anton', sans-serif;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .map-frame {
+        width: 100%; height: 300px; border: 2px solid var(--gold-accent);
+        background-color: #333; display: flex; align-items: center; justify-content: center;
+    }
+    
+    iframe { width: 100%; height: 100%; border: 0; }
+    .copyright {
+        text-align: center; font-size: 0.8rem; color: #777; margin-top: 40px;
+        border-top: 1px solid #333; padding-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .nav-container { flex-direction: column; gap: 20px; }
+        .hero h1 { font-size: 2.5rem; }
+        .item-list { columns: 1; }
+        .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* --- SLIDING GALLERY STYLES --- */
+.slider-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px; /* Space for arrows */
+}
+
+.slider-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    padding: 10px 0; /* Space for shadow */
+}
+
+/* Hide scrollbar for Chrome/Safari/Opera */
+.slider-track::-webkit-scrollbar {
+    display: none;
+}
+
+.slide {
+    min-width: 300px; /* Shows roughly 3 images on desktop */
+    height: 400px;
+    border: 4px solid var(--hunter-green);
+    background-color: #000;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--gold-accent);
+    color: var(--hunter-green);
+    border: 2px solid var(--rich-cream);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.nav-btn:hover {
+    background-color: var(--rich-cream);
+    color: var(--deep-burgundy);
+    border-color: var(--gold-accent);
+}
+
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
+
+@media (max-width: 768px) {
+    .slide {
+        min-width: 85vw; /* On mobile, show 1 big image */
+        height: 350px;
+    }
+    .slider-wrapper {
+        padding: 0 10px;
+    }
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+</style>
+</head>
+<body>
+
+    <header>
+    <div class="top-bar">
+        SERVING MOUNT VERNON FOR OVER A DECADE • FOLLOW US ON IG: @SUITMANSTORE
+    </div>
+    <div class="container nav-container">
+        <div class="logo">SUIT <span>MAN</span></div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#features">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#inventory">Collection</a></li>
+                <li><a href="#location">Visit Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section id="hero" class="hero">
+    <div class="container">
+        <h1>CLASSIC STYLE.<br>UNBEATABLE VALUE.</h1>
+        <p>From Prom to Pews, Weddings to Work. Experience the old-school haberdashery service that Westchester has trusted since for 10+ years.</p>
+        <a href="#location" class="btn btn-primary">Visit The Shop</a>
+    </div>
+</section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-divider">♦ ♦ ♦</div>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <div class="feature-icon">✂</div>
+                    <h3>Expert Fit</h3>
+                    <p>We don't just sell suits; we make sure they fit. On-site alterations and expert measurements ensure you leave looking your absolute best.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎩</div>
+                    <h3>Massive Selection</h3>
+                    <p>Widest variety of neckwear, hats, and suit colors in Westchester. Classic brands, heritage styles, and hard-to-find cuts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Honest Value</h3>
+                    <p>High quality without the high markup. We keep our prices steady so you can look like a million bucks without spending it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+    <div class="container">
+        <div class="gallery-header">
+            <span class="promo-font" style="color: var(--gold-accent);">Inside the Shop</span>
+            <h2>A LEGACY OF STYLE</h2>
+        </div>
+        
+        <div class="slider-wrapper">
+            <!-- Left Arrow -->
+            <button class="nav-btn prev-btn" onclick="scrollGallery(-1)">&#10094;</button>
+            
+            <div class="slider-track" id="galleryTrack">
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1974&auto=format&fit=crop" alt="Leather dress shoes">
+                </div>
+                <!-- Slide 4 -->
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1559551409-dadc959f76b8?q=80&w=2073&auto=format&fit=crop" alt="Tailoring measurements">
+                </div>
+                <!-- Slide 5 -->
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=1974&auto=format&fit=crop" alt="Collection of Fedoras and hats">
+                </div>
+                <!-- Slide 6 -->
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1611937663641-5cef5189d71b?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Suit texture close up">
+                </div>
+                                <!-- Slide 1 -->
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1603394151492-5e9b974b090b?q=80&w=984&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Rack of classic suits">
+                </div>
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1585412459212-8def26f7e84c?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Collection of silk ties">
+                </div>
+            </div>
+
+            <!-- Right Arrow -->
+            <button class="nav-btn next-btn" onclick="scrollGallery(1)">&#10095;</button>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <p style="color: var(--rich-cream); font-style: italic; opacity: 0.8;">"Use arrows to view our collection"</p>
+        </div>
+    </div>
+</section>
+
+    <section class="about">
+        <div class="container">
+            <h2>THE SUIT MAN DIFFERENCE</h2>
+            <p>For over 10 years, we've been Mount Vernon's go-to spot for formal wear. We believe in the old-school way of doing business: shaking hands, knowing our customers by name, and providing honest advice. Whether it's your first suit for an interview or a tuxedo for your wedding, we treat every occasion with the respect it deserves.</p>
+        </div>
+    </section>
+
+    <section id="inventory" class="inventory">
+        <div class="container">
+            <div class="inventory-header">
+                <span class="promo-font" style="color: var(--deep-burgundy); letter-spacing: 2px;">Curated for the Gentleman</span>
+                <h2>OUR COLLECTION</h2>
+            </div>
+            <ul class="item-list">
+                <li>Two & Three Piece Suits</li>
+                <li>Classic Fedoras & Caps</li>
+                <li>Boys & Prom Suits</li>
+                <li>Dress Shoes & Loafers</li>
+                <li>Clergy & Church Wear</li>
+                <li>Tuxedos & Formal Wear</li>
+                <li>Wide Selection of Ties & Bowties</li>
+                <li>Big & Tall Sizes Available</li>
+            </ul>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="tel:9146686858" class="btn" style="color: var(--hunter-green); border-color: var(--hunter-green);">Call For Availability: (914) 668-6858</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="location">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="contact-info">
+                <h3>VISIT THE SHOP</h3>
+                <p><strong>Address:</strong><br>17 Gramatan Ave<br>Mount Vernon, NY 10550</p>
+                <br>
+                <p><strong>Phone:</strong><br>(914) 668-6858</p>
+                <br>
+                <p><strong>Hours:</strong><br>
+                Mon - Sat: 10:00 AM – 5:00 PM<br>
+                Sunday: Closed</p>
+                <br>
+                <!-- Added Instagram Section -->
+                <p><strong>Social Media:</strong><br>
+                <a href="https://www.instagram.com/suitmanstore/" target="_blank" style="color: var(--gold-accent); text-transform: uppercase;">@suitmanstore</a>
+                </p>
+                <br>
+                <p style="color: var(--gold-accent); font-style: italic; margin-top: 10px;">"Brands you can't find anywhere else in Westchester."</p>
+            </div>
+            <div class="map-frame">
+                <!-- Google Maps Embed -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3014.599763688151!2d-73.83901768458856!3d40.91285197931065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c28d4a16a50ff7%3A0xc9689dccc558386!2sSuit%20Man!5e0!3m2!1sen!2sus!4v1675345678901!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Suit Man Mount Vernon. All Rights Reserved. <br>
+            Supporting the community with style and grace.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+<script>
+    function scrollGallery(direction) {
+        const track = document.getElementById('galleryTrack');
+        const scrollAmount = 320; // Matches the slide width + gap
+        
+        if (direction === 1) {
+            track.scrollLeft += scrollAmount;
+        } else {
+            track.scrollLeft -= scrollAmount;
+        }
+    }
+</script>
