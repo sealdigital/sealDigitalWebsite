@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Form | Seal Digital</title>
+    <link rel="icon" type="image/png" href="images/logoTW.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
+
+    <link rel="alternate" hreflang="en" href="seal-digital.com/contact/management" />
+    <link rel="alternate" hreflang="cs" href="seal-digital.com/cs/contact/management" />
+    
+    <style>
+        :root {
+            --pixel-font: 'VT323', monospace;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb; /* Light gray background */
+            color: #11182b; /* Dark gray text */
+            font-family: var(--body-font);
+        }
+
+        .font-pixel {
+            font-family: var(--pixel-font);
+        }
+        
+        .font-heading {
+            font-family: var(--body-font);
+            font-weight: 800; /* Extra-bold for headings */
+        }
+        
+        @media (min-width: 1280px) { /* Corresponds to Tailwind's 'xl' breakpoint */
+            html {
+                font-size: 115%;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm p-6 border-b border-gray-200 transition-transform duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="/" class="text-gray-900">
+                <img src="../images/logoT.png" alt="Seal Digital Logo" class="h-10 w-auto">
+            </a>
+            <nav class="hidden md:flex space-x-8 text-base tracking-wider uppercase font-medium text-gray-600">
+                <a href="/" class="hover:text-gray-900 transition-colors">Website Development</a>
+                <a href="/management" class="hover:text-gray-900 transition-colors">Website Management</a>
+                <a href="/contact" class="text-gray-900 transition-colors">Contact</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden z-50 text-gray-900">
+                 <svg xmlns="http://www.w3.org/0000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200">
+            <div class="flex flex-col items-center space-y-6 py-8 text-lg uppercase tracking-widest text-gray-800">
+                <a href="/" class="mobile-link hover:text-black transition-colors">Web Development</a>
+                <a href="/management" class="mobile-link hover:text-black transition-colors">Web Management</a>
+                <a href="/contact" class="mobile-link text-black transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Management Form Section -->
+        <section class="bg-white pt-20 md:pt-32 flex flex-col min-h-screen">
+            <div class="container mx-auto px-4">
+                <div class="max-w-xl mx-auto text-center mb-12">
+                     <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl mb-4 tracking-tighter text-gray-900">
+                        Website Management
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600">
+                        Choose a plan that works for you and we'll handle the rest. Fill out the form below to get started.
+                    </p>
+                </div>
+
+                <div class="max-w-xl mx-auto bg-white border border-gray-200 rounded-lg p-8 shadow-xl">
+                    <!-- This form can point to a backend script for processing -->
+                    <form action="https://formspree.io/f/mjgvoleg" method="POST" class="space-y-6">
+                        
+                        <!-- Name Field -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" name="name" id="name" required class="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-gray-900 focus:border-gray-900 transition-colors">
+                        </div>
+
+                        <!-- Email Field -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" name="email" id="email" required class="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-gray-900 focus:border-gray-900 transition-colors">
+                        </div>
+                        
+                        <!-- Management Plan Field -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Management Plan</label>
+                            <fieldset class="mt-2">
+                                <legend class="sr-only">Choose a management plan</legend>
+                                <div class="space-y-4">
+                                    <div class="flex items-center">
+                                        <input id="plan-basic" name="management_plan" type="radio" value="Basic - $29/mo" required class="h-4 w-4 text-gray-900 border-gray-300 focus:ring-gray-900">
+                                        <label for="plan-basic" class="ml-3 block text-sm font-medium text-gray-700">Basic ($29/mo)</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input id="plan-professional" name="management_plan" type="radio" value="Professional - $69/mo" class="h-4 w-4 text-gray-900 border-gray-300 focus:ring-gray-900">
+                                        <label for="plan-professional" class="ml-3 block text-sm font-medium text-gray-700">Professional ($69/mo)</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+
+                        <!-- Message Field -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea name="message" id="message" rows="5" placeholder="Tell us a bit about what features are you looking for..." required class="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-gray-900 focus:border-gray-900 transition-colors"></textarea>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div>
+                            <button type="submit" class="w-full inline-block bg-gray-900 text-white font-bold py-3 px-8 uppercase tracking-wider transition-transform duration-300 hover:scale-105 rounded-md">
+                                Get Started
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="flex-grow flex justify-center items-center px-4">
+                <p class="text-gray-600 my-6 text-center">Didn't fit the box? <a href="other" class="text-gray-600 underline">Contact us directly.</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section (Copied for consistency) -->
+    <footer id="contact" class="bg-black text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-16">
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-2"><a href="/" class="hover:underline">Website Design</a></h3>
+                    <p class="text-gray-400 max-w-sm">Authentic, modern, and affordable website designs for small businesses. Get your free prototype today.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-2"><a href="/management" class="hover:underline">Website Management</a></h3>
+                    <p class="text-gray-400 max-w-sm">Reliable services to keep your site up to date and running smoothly so you can focus on your business.</p>
+                </div>
+            </div>
+            <div class="py-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex items-center gap-x-6">
+                    <a href="/" class="block flex-shrink-0"><img src="../images/logoTG.png" alt="Seal Digital Logo" class="h-10 w-auto"></a>
+                    <div class="text-sm text-gray-500">
+                        <p class="whitespace-nowrap">&copy; <span id="copyright-year"></span> Seal Digital. All Rights Reserved.</p>
+                        <nav class="flex items-center gap-x-4 text-xs mt-1">
+                           <a href="/tos" class="hover:text-white transition-colors">Terms of Service</a>
+                               <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+                        </nav>
+                    </div>
+                </div>
+                <div class="flex items-center gap-5 text-gray-400">
+                    <a href="https://www.trustpilot.com/review/seal-digital.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/0000/svg"><path d="M22.952 8.747l-6.262-.54L14.12 2.45c-.24-.48-.72-.79-1.256-.79-.538 0-1.018.31-1.257-.79L9.038 8.207l-6.26.54c-.564.048-.99.504-1.02 1.07-.03.564.39 1.044.948 1.11l4.75 3.203-1.57 5.797c-.12.456.09.948.5 1.188.41.24.91.21 1.29-.072l5.4-3.41 5.4 3.41c.18.12.38.18.58.18.23 0 .46-.08.65-.25.41-.24.62-.73.5-1.18l-1.57-5.798 4.75-3.204c.55-.06.98-.54.95-1.11a1.13 1.13 0 00-.51-.81zm-9.832 3.194l-2.02 1.36-1.55 1.39-1.1-4.08 1.09-4.08 4.34.37.02 8.76-1.87-1.18z"/></svg></a>
+                    <a href="https://www.facebook.com/profile.php?id=61580315578302" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/0000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Pre-select plan based on URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const plan = urlParams.get('plan');
+
+            if (plan === 'basic') {
+                const basicPlanRadio = document.getElementById('plan-basic');
+                if (basicPlanRadio) {
+                    basicPlanRadio.checked = true;
+                }
+            } else if (plan === 'professional') {
+                const professionalPlanRadio = document.getElementById('plan-professional');
+                if (professionalPlanRadio) {
+                    professionalPlanRadio.checked = true;
+                }
+            }
+            
+            
+            // JS for header and footer consistency
+            const header = document.getElementById('main-header');
+            let lastScrollY = window.scrollY;
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) { if (lastScrollY < window.scrollY) { header.classList.add('-translate-y-full'); } else { header.classList.remove('-translate-y-full'); } } else { header.classList.remove('-translate-y-full'); }
+                lastScrollY = window.scrollY;
+            });
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+                mobileLinks.forEach(link => link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); }));
+            }
+            const copyrightYearEl = document.getElementById('copyright-year');
+            if(copyrightYearEl) { copyrightYearEl.textContent = new Date().getFullYear(); }
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+

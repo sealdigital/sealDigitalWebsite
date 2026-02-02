@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intake Form | Seal Digital</title>
+    <link rel="icon" type="image/png" href="images/logoTW.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=VT323&display=swap" rel="stylesheet">
+
+    <link rel="alternate" hreflang="en" href="seal-digital.com/contact/design" />
+    <link rel="alternate" hreflang="cs" href="seal-digital.com/cs/contact/design" />
+    
+    <style>
+        :root {
+            --pixel-font: 'VT323', monospace;
+            --body-font: 'Inter', sans-serif;
+        }
+        body {
+            background-color: #f9fafb;
+            color: #11182b;
+            font-family: var(--body-font);
+        }
+        
+        .font-heading {
+            font-family: var(--body-font);
+            font-weight: 800;
+        }
+        
+        /* Multi-Page Form Specific Styles */
+        .form-page { display: none; }
+        .form-page.active { display: block; }
+        .progress-bar-container { width: 100%; background-color: #e5e7eb; border-radius: 999px; height: 8px; margin-bottom: 2.5rem; }
+        .progress-bar-fill { height: 100%; background-color: #11182b; border-radius: 999px; transition: width 0.4s ease-in-out; }
+
+        /* General Form Styling from Contact Page */
+        .form-label { display: block; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500; color: #374151; }
+        .form-input, .form-textarea { display: block; width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.375rem; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); transition: border-color 0.2s, box-shadow 0.2s; }
+        .form-input:focus, .form-textarea:focus { outline: none; border-color: #11182b; box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.2); }
+        .form-textarea { resize: vertical; min-height: 120px; }
+        
+        /* Choices Styling for alignment */
+        .choices-group > div { display: flex; align-items: center; margin-bottom: 0.75rem; }
+        .choices-group input[type="radio"], .choices-group input[type="checkbox"] { height: 1rem; width: 1rem; border-color: #d1d5db; color: #11182b; focus:ring-gray-900; }
+        .choices-group label { margin-left: 0.75rem; font-size: 0.875rem; font-weight: 500; color: #374151; }
+        .choices-group .other-input { margin-left: 0.5rem; flex: 1; }
+        
+        /* Button Styling */
+        .nav-button, .form-submit { display: inline-block; font-bold: 600; padding: 0.75rem 2rem; border-radius: 0.375rem; text-transform: uppercase; letter-spacing: 0.05em; transition: transform 0.3s, background-color 0.3s; }
+        .nav-button:hover, .form-submit:hover { transform: scale(1.05); }
+        .nav-button-prev { background-color: #e5e7eb; color: #1f2937; }
+        .nav-button-next, .form-submit { background-color: #11182b; color: #ffffff; }
+
+        #submission-status { margin-top: 1.5rem; font-weight: bold; font-size: 1rem; padding: 1rem; border-radius: 0.375rem; display: none; text-align: center; }
+        .success { background-color: #e8f5e9; color: #2e7d32; }
+        .error { background-color: #ffebee; color: #c62828; }
+        
+        @media (min-width: 1280px) { /* Corresponds to Tailwind's 'xl' breakpoint */
+            html {
+                font-size: 115%;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm p-6 border-b border-gray-200 transition-transform duration-300 ease-in-out">
+        <div class="container mx-auto flex justify-between items-center px-4">
+             <a href="/" class="text-gray-900"><img src="../images/logoT.png" alt="Seal Digital Logo" class="h-10 w-auto"></a>
+            <nav class="hidden md:flex space-x-8 text-base tracking-wider uppercase font-medium text-gray-600"><a href="/" class="hover:text-gray-900 transition-colors">Website Development</a><a href="/management" class="hover:text-gray-900 transition-colors">Website Management</a><a href="/contact" class="text-gray-900 transition-colors">Contact</a></nav>
+            <button id="menu-btn" class="md:hidden z-50 text-gray-900"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg></button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200"><div class="flex flex-col items-center space-y-6 py-8 text-lg uppercase tracking-widest text-gray-800"><a href="/" class="mobile-link hover:text-black transition-colors">Web Development</a><a href="/management" class="mobile-link hover:text-black transition-colors">Web Management</a><a href="/contact" class="mobile-link text-black transition-colors">Contact</a></div></div>
+    </header>
+
+    <main>
+        <section class="pt-20 md:pt-32 min-h-screen flex flex-col">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto">
+                    <div class="text-center mb-12">
+                         <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl mb-4 tracking-tighter text-gray-900">Project Intake</h1>
+                        <p class="text-lg md:text-xl text-gray-600">Fill out this form so we can deliver the prototype. It's free!</p>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-8 md:p-12 shadow-xl">
+                        <div class="progress-bar-container"><div id="progress-bar-fill" class="progress-bar-fill"></div></div>
+                        
+                        <form id="intake-form" class="space-y-6">
+                            <input type="hidden" name="fbzx" value="-1017713411923826058"><input type="hidden" name="fvv" value="1"><input type="hidden" name="pageHistory" value="0">
+
+                            <!-- Page 1 -->
+                            <div class="form-page active space-y-6">
+                                <h2 class="text-2xl font-bold text-center text-gray-800 border-b pb-4 mb-8">Basic Information</h2>
+                                <div><label class="form-label" for="entry.1240725764">Business Name<span class="text-red-500 ml-1">*</span></label><input type="text" id="entry.1240725764" name="entry.1240725764" required class="form-input"></div>
+                                <div><label class="form-label" for="entry.470968484">Contact (email, reddit, facebook...)<span class="text-red-500 ml-1">*</span></label><input type="text" id="entry.470968484" name="entry.470968484" required class="form-input"></div>
+                                <div><label class="form-label" for="entry.1300429092">Briefly describe your business (1–3 sentences)<span class="text-red-500 ml-1">*</span></label><textarea id="entry.1300429092" name="entry.1300429092" required rows="4" class="form-textarea"></textarea></div>
+                                <div class="choices-group"><label class="form-label">Do you already have a website? If so whats the link.</label><div><input type="radio" name="entry.2040111463" value="No" id="q4-no"><label for="q4-no">No</label></div><div class="other-input-wrapper"><input type="radio" name="entry.2040111463" value="__other_option__" id="q4-other"><label for="q4-other">Other:</label><input type="text" name="entry.2040111463.other_option_response" placeholder="Enter website link here" class="other-input form-input"></div><input type="hidden" name="entry.2040111463_sentinel" value=""></div>
+                            </div>
+                            
+                            <!-- Page 2 -->
+                            <div class="form-page space-y-6"><h2 class="text-2xl font-bold text-center text-gray-800 border-b pb-4 mb-8">Website Goals</h2><div><label for="entry.1074300756" class="form-label">What’s the main purpose of the website?</label><input type="text" id="entry.1074300756" name="entry.1074300756" placeholder="sales, leads, portfolio, info, booking" class="form-input"></div><div><label for="entry.1027408270" class="form-label">Target audience (demographics, location, interests)<span class="text-red-500 ml-1">*</span></label><input type="text" id="entry.1027408270" name="entry.1027408270" required class="form-input"></div></div>
+                            <!-- Page 3 --><div class="form-page space-y-6"><h2 class="text-2xl font-bold text-center text-gray-800 border-b pb-4 mb-8">Pages</h2><div class="choices-group"><label class="form-label">How many pages? (or should we recommend?)<span class="text-red-500 ml-1">*</span></label><div><input type="radio" name="entry.700908134" value="1-3" id="pages-1-3" required><label for="pages-1-3">1-3</label></div><div><input type="radio" name="entry.700908134" value="4-8" id="pages-4-8"><label for="pages-4-8">4-8</label></div><div><input type="radio" name="entry.700908134" value="8+" id="pages-8+"><label for="pages-8+">8+</label></div><div><input type="radio" name="entry.700908134" value="Let us decide" id="pages-decide"><label for="pages-decide">Let us decide</label></div><input type="hidden" name="entry.700908134_sentinel" value=""></div><div><label for="entry.870878545" class="form-label">List specific pages (Home, About, Services, etc.)</label><textarea id="entry.870878545" name="entry.870878545" class="form-textarea"></textarea></div><div><label for="entry.1152831040" class="form-label">Information for about page (Name, Adress, Phone, Email, Map, etc.)</label><textarea id="entry.1152831040" name="entry.1152831040" class="form-textarea"></textarea></div></div>
+                            <!-- Page 4 --><div class="form-page space-y-6"><h2 class="text-2xl font-bold text-center text-gray-800 border-b pb-4 mb-8">Features</h2><div class="choices-group"><label class="form-label">Required features:</label><div><input type="checkbox" name="entry.510045213" value="Form" id="feat-form"><label for="feat-form">Form</label></div><div><input type="checkbox" name="entry.510045213" value="Image Gallery" id="feat-gallery"><label for="feat-gallery">Image Gallery</label></div><div><input type="checkbox" name="entry.510045213" value="Booking" id="feat-booking"><label for="feat-booking">Booking</label></div><div><input type="checkbox" name="entry.510045213" value="E-commerce" id="feat-ecom"><label for="feat-ecom">E-commerce</label></div><div><input type="checkbox" name="entry.510045213" value="Payments" id="feat-payments"><label for="feat-payments">Payments</label></div><div><input type="checkbox" name="entry.510045213" value="Blog" id="feat-blog"><label for="feat-blog">Blog</label></div><div><input type="checkbox" name="entry.510045213" value="Interactive Map" id="feat-map"><label for="feat-map">Interactive Map</label></div><div class="other-input-wrapper"><input type="checkbox" name="entry.510045213" value="__other_option__" id="feat-other"><label for="feat-other">Other:</label><input type="text" name="entry.510045213.other_option_response" placeholder="Custom feature" class="other-input form-input"></div><input type="hidden" name="entry.510045213_sentinel" value=""></div><div><label for="entry.1847963933" class="form-label">Anything you would like to add to this?</label><textarea id="entry.1847963933" name="entry.1847963933" class="form-textarea"></textarea></div></div>
+                            <!-- Page 5 --><div class="form-page space-y-6"><h2 class="text-2xl font-bold text-center text-gray-800 border-b pb-4 mb-8">Content</h2><div class="choices-group"><label class="form-label">Will you provide specific text content?</label><div><input type="radio" name="entry.525375302" value="Yes" id="content-yes"><label for="content-yes">Yes</label></div><div><input type="radio" name="entry.525375302" value="No" id="content-no"><label for="content-no">No</label></div><div><input type="radio" name="entry.525375302" value="Partial" id="content-partial"><label for="content-partial">Partial</label></div><input type="hidden" name="entry.525375302_sentinel" value=""></div><div class="choices-group"><label class="form-label">Do you have custom images/videos to use?<span class="text-red-500 ml-1">*</span></label><div><input type="radio" name="entry.1334236478" value="Yes" id="media-yes" required><label for="media-yes">Yes</label></div><div><input type="radio" name="entry.1334236478" value="No" id="media-no"><label for="media-no">No</label></div><input type="hidden" name="entry.1334236478_sentinel" value=""></div><div><label for="entry.1050407606" class="form-label">Anything you would like to add?</label><textarea id="entry.1050407606" name="entry.1050407606" class="form-textarea"></textarea></div></div>
+                            <!-- Page 6 --><div class="form-page space-y-6"><h2 class="text-2xl font-bold text-center text-gray-800 border-b pb-4 mb-8">Design & Branding</h2><div class="choices-group"><label class="form-label">Do you have a logo?</label><div><input type="radio" name="entry.415621021" value="Yes" id="logo-yes"><label for="logo-yes">Yes</label></div><div><input type="radio" name="entry.415621021" value="No" id="logo-no"><label for="logo-no">No</label></div><input type="hidden" name="entry.415621021_sentinel" value=""></div><div><label for="entry.1827024809" class="form-label">Design style (modern, minimal, playful, etc.)</label><input type="text" id="entry.1827024809" name="entry.1827024809" class="form-input"></div><div><label for="entry.1613992912" class="form-label">Specific colors, fonts, or style?</label><textarea id="entry.1613992912" name="entry.1613992912" class="form-textarea"></textarea></div><div><label for="entry.1645899286" class="form-label">Example sites you like (links)</label><textarea id="entry.1645899286" name="entry.1645899286" class="form-textarea"></textarea></div></div>
+                            <!-- Page 7 --><div class="form-page space-y-6"><h2 class="text-2xl font-bold text-center text-gray-800 border-b pb-4 mb-8">Domain & Hosting</h2><div class="choices-group"><label class="form-label">Do you own a domain? (example.com)<span class="text-red-500 ml-1">*</span></label><div><input type="radio" name="entry.1528656785" value="Yes" id="domain-yes" required><label for="domain-yes">Yes</label></div><div><input type="radio" name="entry.1528656785" value="No" id="domain-no"><label for="domain-no">No</label></div><input type="hidden" name="entry.1528656785_sentinel" value=""></div><div class="choices-group"><label class="form-label">Do you have prefered hosting? (if yes specify)</label><div><input type="radio" name="entry.849216127" value="No" id="hosting-no"><label for="hosting-no">No</label></div><div class="other-input-wrapper"><input type="radio" name="entry.849216127" value="__other_option__" id="hosting-other"><label for="hosting-other">Other:</label><input type="text" name="entry.849216127.other_option_response" placeholder="Specify hosting" class="other-input form-input"></div><input type="hidden" name="entry.849216127_sentinel" value=""></div><div class="choices-group"><label class="form-label">Expected monthly traffic?<span class="text-red-500 ml-1">*</span></label><div><input type="radio" name="entry.2103637697" value="0-1,000 visits" id="traffic-1" required><label for="traffic-1">0-1,000 visits</label></div><div><input type="radio" name="entry.2103637697" value="1,000-5,000 visits" id="traffic-2"><label for="traffic-2">1,000-5,000 visits</label></div><div><input type="radio" name="entry.2103637697" value="5,000-20,000 visits" id="traffic-3"><label for="traffic-3">5,000-20,000 visits</label></div><div><input type="radio" name="entry.2103637697" value="20,000-100,000 visits" id="traffic-4"><label for="traffic-4">20,000-100,000 visits</label></div><div><input type="radio" name="entry.2103637697" value="100,000+ visits" id="traffic-5"><label for="traffic-5">100,000+ visits</label></div><div><input type="radio" name="entry.2103637697" value="I dont know." id="traffic-6"><label for="traffic-6">I dont know.</label></div><input type="hidden" name="entry.2103637697_sentinel" value=""></div></div>
+                            <!-- Page 8 --><div class="form-page space-y-6"><h2 class="text-2xl font-bold text-center text-gray-800 border-b pb-4 mb-8">SEO & Marketing</h2><div><label for="entry.1662732110" class="form-label">Target keywords (top 3–10)</label><textarea id="entry.1662732110" name="entry.1662732110" class="form-textarea"></textarea></div><div><label for="entry.1405053823" class="form-label">Social media profiles (FB, IG, Yelp, GMB, etc.)</label><textarea id="entry.1405053823" name="entry.1405053823" class="form-textarea"></textarea></div></div>
+                            <!-- Page 9 --><div class="form-page space-y-6"><h2 class="text-2xl font-bold text-center text-gray-800 border-b pb-4 mb-8">Timeline & Budget</h2><div class="choices-group"><label class="form-label">Budget range<span class="text-red-500 ml-1">*</span></label><small class="block text-sm text-gray-500 mb-2">Monthly payments for hosting, domain, database, api keys, etc.</small><div><input type="radio" name="entry.1984118218" value="<1$ / month - static sites only" id="budget-1" required><label for="budget-1">&lt;1$ / month - static sites only</label></div><div><input type="radio" name="entry.1984118218" value="1-10$ / month" id="budget-2"><label for="budget-2">1-10$ / month</label></div><div><input type="radio" name="entry.1984118218" value="10-25$ / month" id="budget-3"><label for="budget-3">10-25$ / month</label></div><div><input type="radio" name="entry.1984118218" value="25-100$ / month" id="budget-4"><label for="budget-4">25-100$ / month</label></div><div><input type="radio" name="entry.1984118218" value="100-1000$ / month" id="budget-5"><label for="budget-5">100-1000$ / month</label></div><div><input type="radio" name="entry.1984118218" value=">1000$ / month" id="budget-6"><label for="budget-6">&gt;1000$ / month</label></div><div class="other-input-wrapper"><input type="radio" name="entry.1984118218" value="__other_option__" id="budget-other"><label for="budget-other">Other:</label><input type="text" name="entry.1984118218.other_option_response" placeholder="Custom budget" class="other-input form-input"></div><input type="hidden" name="entry.1984118218_sentinel" value=""></div><div><label for="entry.930271024" class="form-label">Do you need by certain date?</label><input type="text" id="entry.930271024" name="entry.930271024" placeholder="e.g., MM/DD/YYYY" class="form-input"></div></div>
+                            <!-- Page 10 --><div class="form-page space-y-6"><h2 class="text-2xl font-bold text-center text-gray-800 border-b pb-4 mb-8">Other</h2><div><label for="entry.569690562" class="form-label">Competitor websites (links)</label><textarea id="entry.569690562" name="entry.569690562" class="form-textarea"></textarea></div><div><label for="entry.1962976580" class="form-label">Anything to include/avoid?</label><textarea id="entry.1962976580" name="entry.1962976580" class="form-textarea"></textarea></div><div><label for="entry.749571804" class="form-label">Additional comments</label><textarea id="entry.749571804" name="entry.749571804" class="form-textarea"></textarea></div></div>
+
+                            <div class="mt-10 pt-6 border-t border-gray-200">
+                                <div class="flex justify-between items-center">
+                                    <button type="button" id="prev-btn" class="nav-button nav-button-prev">Previous</button>
+                                    <button type="button" id="next-btn" class="nav-button nav-button-next">Next</button>
+                                    <button type="submit" id="submit-btn" class="form-submit" style="display: none;">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div id="submission-status"></div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="flex-grow flex justify-center items-center px-4">
+            <p class="text-gray-600 my-6 text-center">Need something else? <a href="other" class="text-gray-600 underline">Contact us directly.</a></p>
+        </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-black text-white py-16">
+        <div class="container mx-auto px-4"><div class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-16"><div><h3 class="text-lg font-bold text-white mb-2"><a href="/" class="hover:underline">Website Design</a></h3><p class="text-gray-400 max-w-sm">Authentic, modern, and affordable website designs for small businesses. Get your free prototype today.</p></div><div><h3 class="text-lg font-bold text-white mb-2"><a href="/management" class="hover:underline">Website Management</a></h3><p class="text-gray-400 max-w-sm">Reliable services to keep your site up to date and running smoothly so you can focus on your business.</p></div></div><div class="py-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center gap-8"><div class="flex items-center gap-x-6"><a href="/" class="block flex-shrink-0"><img src="../images/logoTG.png" alt="Seal Digital Logo" class="h-10 w-auto"></a><div class="text-sm text-gray-500"><p class="whitespace-nowrap">&copy; <span id="copyright-year"></span> Seal Digital. All Rights Reserved.</p><nav class="flex items-center gap-x-4 text-xs mt-1"><a href="/tos" class="hover:text-white transition-colors">Terms of Service</a>
+                               <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a></nav></div></div><div class="flex items-center gap-5 text-gray-400"><a href="https://www.trustpilot.com/review/seal-digital.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.952 8.747l-6.262-.54L14.12 2.45c-.24-.48-.72-.79-1.256-.79-.538 0-1.018.31-1.257-.79L9.038 8.207l-6.26.54c-.564.048-.99.504-1.02 1.07-.03.564.39 1.044.948 1.11l4.75 3.203-1.57 5.797c-.12.456.09.948.5 1.188.41.24.91.21 1.29-.072l5.4-3.41 5.4 3.41c.18.12.38.18.58.18.23 0 .46-.08.65-.25.41-.24.62-.73.5-1.18l-1.57-5.798 4.75-3.204c.55-.06.98-.54.95-1.11a1.13 1.13 0 00-.51-.81zm-9.832 3.194l-2.02 1.36-1.55 1.39-1.1-4.08 1.09-4.08 4.34.37.02 8.76-1.87-1.18z"/></svg></a><a href="https://www.facebook.com/profile.php?id=61580315578302" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors"><svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/0000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg></a></div></div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('intake-form');
+            const pages = Array.from(form.querySelectorAll('.form-page'));
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const submitBtn = document.getElementById('submit-btn');
+            const progressBarFill = document.getElementById('progress-bar-fill');
+            let currentPageIndex = 0;
+
+            function updateFormView() {
+                pages.forEach((page, index) => { page.classList.toggle('active', index === currentPageIndex); });
+                prevBtn.style.visibility = currentPageIndex === 0 ? 'hidden' : 'visible';
+                nextBtn.style.display = currentPageIndex === pages.length - 1 ? 'none' : 'block';
+                submitBtn.style.display = currentPageIndex === pages.length - 1 ? 'block' : 'none';
+                const progress = ((currentPageIndex + 1) / pages.length) * 100;
+                progressBarFill.style.width = `${progress}%`;
+            }
+
+            function validateCurrentPage() {
+                const currentPage = pages[currentPageIndex];
+                const inputs = currentPage.querySelectorAll('input[required], textarea[required], select[required]');
+                let allValid = true;
+                for (const input of inputs) {
+                    if (!input.checkValidity()) {
+                        allValid = false;
+                        if (input.type === 'radio') {
+                            const group = input.closest('.choices-group');
+                            const firstRadio = group.querySelector('input[type="radio"]');
+                            firstRadio.reportValidity();
+                        } else {
+                            input.reportValidity();
+                        }
+                        break;
+                    }
+                }
+                return allValid;
+            }
+
+            nextBtn.addEventListener('click', () => { if (validateCurrentPage()) { if (currentPageIndex < pages.length - 1) { currentPageIndex++; updateFormView(); window.scrollTo(0, 0); } } });
+            prevBtn.addEventListener('click', () => { if (currentPageIndex > 0) { currentPageIndex--; updateFormView(); window.scrollTo(0, 0); } });
+
+            const submissionStatus = document.getElementById('submission-status');
+            const actionUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSd4PBIUL-VkYqrc-DE6CIRnqwD9-9P1uYqZJQZ4GWMSn5xUJA/formResponse';
+            //1FAIpQLSd4PBIUL-VkYqrc-DE6CIRnqwD9-9P1uYqZJQZ4GWMSn5xUJA
+            //1FAIpQLSd4PBIUL-VkYqrc-DE6CIRnqwD-9-P1uYqZJQZ4GWMSn5xUJA
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (!validateCurrentPage()) return;
+                const formData = new FormData(form);
+                submissionStatus.textContent = 'Submitting...';
+                submissionStatus.className = 'success';
+                submissionStatus.style.display = 'block';
+                fetch(actionUrl, { method: 'POST', body: formData, mode: 'no-cors' })
+                    .then(() => { window.location.href = 'success.html'; })
+                    .catch(error => {
+                        submissionStatus.textContent = 'A network error occurred. Please try again.';
+                        submissionStatus.className = 'error';
+                        console.error('Error:', error);
+                    });
+            });
+            
+            const otherTextInputs = form.querySelectorAll('input[name$=".other_option_response"]');
+            otherTextInputs.forEach(textInput => {
+                textInput.addEventListener('input', () => {
+                    const otherOption = textInput.closest('.other-input-wrapper').querySelector('input[value="__other_option__"]');
+                    if (otherOption) { otherOption.checked = true; }
+                });
+            });
+
+            updateFormView();
+
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            if (menuBtn && mobileMenu) { menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); }); mobileLinks.forEach(link => link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); })); }
+            const copyrightYearEl = document.getElementById('copyright-year');
+            if(copyrightYearEl) { copyrightYearEl.textContent = new Date().getFullYear(); }
+        });
+    </script>
+</body>
+</html>
