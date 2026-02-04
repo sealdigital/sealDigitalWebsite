@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Management Form | Seal Digital</title>
-    <link rel="icon" type="image/png" href="images/logoTW.png">
+    <title>Formulář pro správu webu | Seal Digital</title>
+    <link rel="icon" type="image/png" href="/images/ico.png">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -50,13 +50,13 @@
     <!-- Header -->
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm p-6 border-b border-gray-200 transition-transform duration-300 ease-in-out">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="/" class="text-gray-900">
-                <img src="../images/logoT.png" alt="Seal Digital Logo" class="h-10 w-auto">
+            <a href="/cs/" class="text-gray-900">
+                <img src="/images/logoT.png" alt="Seal Digital Logo" class="h-10 w-auto">
             </a>
             <nav class="hidden md:flex space-x-8 text-base tracking-wider uppercase font-medium text-gray-600">
-                <a href="/" class="hover:text-gray-900 transition-colors">Website Development</a>
-                <a href="/management" class="hover:text-gray-900 transition-colors">Website Management</a>
-                <a href="/contact" class="text-gray-900 transition-colors">Contact</a>
+                <a href="/cs/" class="hover:text-gray-900 transition-colors">Vývoj webu</a>
+                <a href="/cs/management" class="hover:text-gray-900 transition-colors">Správa webu</a>
+                <a href="/cs/contact" class="text-gray-900 transition-colors">Kontakt</a>
             </nav>
             <button id="menu-btn" class="md:hidden z-50 text-gray-900">
                  <svg xmlns="http://www.w3.org/0000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,9 +67,9 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-200">
             <div class="flex flex-col items-center space-y-6 py-8 text-lg uppercase tracking-widest text-gray-800">
-                <a href="/" class="mobile-link hover:text-black transition-colors">Web Development</a>
-                <a href="/management" class="mobile-link hover:text-black transition-colors">Web Management</a>
-                <a href="/contact" class="mobile-link text-black transition-colors">Contact</a>
+                <a href="/cs/" class="mobile-link hover:text-black transition-colors">Vývoj webu</a>
+                <a href="/cs/management" class="mobile-link hover:text-black transition-colors">Správa webu</a>
+                <a href="/cs/contact" class="mobile-link text-black transition-colors">Kontakt</a>
             </div>
         </div>
     </header>
@@ -80,10 +80,10 @@
             <div class="container mx-auto px-4">
                 <div class="max-w-xl mx-auto text-center mb-12">
                      <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl mb-4 tracking-tighter text-gray-900">
-                        Website Management
+                        Správa webových stránek
                     </h1>
                     <p class="text-lg md:text-xl text-gray-600">
-                        Choose a plan that works for you and we'll handle the rest. Fill out the form below to get started.
+                        Vyberte si plán, který vám vyhovuje, a my se postaráme o zbytek. Vyplňte formulář níže a začněte.
                     </p>
                 </div>
 
@@ -93,7 +93,7 @@
                         
                         <!-- Name Field -->
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Jméno</label>
                             <input type="text" name="name" id="name" required class="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-gray-900 focus:border-gray-900 transition-colors">
                         </div>
 
@@ -105,17 +105,17 @@
                         
                         <!-- Management Plan Field -->
                         <div>
-                            <label class="block text-sm font-medium text-gray-700">Management Plan</label>
+                            <label class="block text-sm font-medium text-gray-700">Plán správy</label>
                             <fieldset class="mt-2">
-                                <legend class="sr-only">Choose a management plan</legend>
+                                <legend class="sr-only">Vyberte plán správy</legend>
                                 <div class="space-y-4">
                                     <div class="flex items-center">
                                         <input id="plan-basic" name="management_plan" type="radio" value="Basic - $29/mo" required class="h-4 w-4 text-gray-900 border-gray-300 focus:ring-gray-900">
-                                        <label for="plan-basic" class="ml-3 block text-sm font-medium text-gray-700">Basic ($29/mo)</label>
+                                        <label for="plan-basic" class="ml-3 block text-sm font-medium text-gray-700">Základní ($29/měs)</label>
                                     </div>
                                     <div class="flex items-center">
                                         <input id="plan-professional" name="management_plan" type="radio" value="Professional - $69/mo" class="h-4 w-4 text-gray-900 border-gray-300 focus:ring-gray-900">
-                                        <label for="plan-professional" class="ml-3 block text-sm font-medium text-gray-700">Professional ($69/mo)</label>
+                                        <label for="plan-professional" class="ml-3 block text-sm font-medium text-gray-700">Profesionální ($69/měs)</label>
                                     </div>
                                 </div>
                             </fieldset>
@@ -124,21 +124,21 @@
 
                         <!-- Message Field -->
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                            <textarea name="message" id="message" rows="5" placeholder="Tell us a bit about what features are you looking for..." required class="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-gray-900 focus:border-gray-900 transition-colors"></textarea>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Zpráva</label>
+                            <textarea name="message" id="message" rows="5" placeholder="Řekněte nám, jaké funkce hledáte..." required class="block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-gray-900 focus:border-gray-900 transition-colors"></textarea>
                         </div>
                         
                         <!-- Submit Button -->
                         <div>
                             <button type="submit" class="w-full inline-block bg-gray-900 text-white font-bold py-3 px-8 uppercase tracking-wider transition-transform duration-300 hover:scale-105 rounded-md">
-                                Get Started
+                                Začít
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="flex-grow flex justify-center items-center px-4">
-                <p class="text-gray-600 my-6 text-center">Didn't fit the box? <a href="other" class="text-gray-600 underline">Contact us directly.</a></p>
+                <p class="text-gray-600 my-6 text-center">Nenašli jste, co jste hledali? <a href="other" class="text-gray-600 underline">Kontaktujte nás přímo.</a></p>
             </div>
         </section>
     </main>
@@ -148,19 +148,19 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pb-16">
                 <div>
-                    <h3 class="text-lg font-bold text-white mb-2"><a href="/" class="hover:underline">Website Design</a></h3>
-                    <p class="text-gray-400 max-w-sm">Authentic, modern, and affordable website designs for small businesses. Get your free prototype today.</p>
+                    <h3 class="text-lg font-bold text-white mb-2"><a href="/cs/" class="hover:underline">Design webových stránek</a></h3>
+                    <p class="text-gray-400 max-w-sm">Autentický, moderní a cenově dostupný design webových stránek pro malé firmy. Získejte svůj prototyp zdarma ještě dnes.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold text-white mb-2"><a href="/management" class="hover:underline">Website Management</a></h3>
-                    <p class="text-gray-400 max-w-sm">Reliable services to keep your site up to date and running smoothly so you can focus on your business.</p>
+                    <h3 class="text-lg font-bold text-white mb-2"><a href="/cs/management" class="hover:underline">Správa webu</a></h3>
+                    <p class="text-gray-400 max-w-sm">Spolehlivé služby pro udržení vašeho webu v aktuálním stavu a bezproblémovém chodu, abyste se mohli soustředit na své podnikání.</p>
                 </div>
             </div>
             <div class="py-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center gap-8">
                 <div class="flex items-center gap-x-6">
-                    <a href="/" class="block flex-shrink-0"><img src="../images/logoTG.png" alt="Seal Digital Logo" class="h-10 w-auto"></a>
+                    <a href="/cs/" class="block flex-shrink-0"><img src="/images/logoTG.png" alt="Seal Digital Logo" class="h-10 w-auto"></a>
                     <div class="text-sm text-gray-500">
-                        <p class="whitespace-nowrap">&copy; <span id="copyright-year"></span> Seal Digital. All Rights Reserved.</p>
+                        <p class="whitespace-nowrap">&copy; <span id="copyright-year"></span> Seal Digital. Všechna práva vyhrazena.</p>
                         <nav class="flex items-center gap-x-4 text-xs mt-1">
                            <a href="/tos" class="hover:text-white transition-colors">Terms of Service</a>
                                <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
@@ -214,8 +214,3 @@
 </body>
 
 </html>
-
-
-
-
-
